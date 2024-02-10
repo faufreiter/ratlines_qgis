@@ -1,0 +1,268 @@
+WKT,Name,Beschreibung,criminal,numbered,Copy of numbered,start_year,end_year,activity,notes
+"POINT (13.767815 47.901174 0.0)",Altmünster am Traunsee,birth location,Franz Stangl,1.0,01,1908,,,
+"POINT (14.035267 48.16542 0.0)",Wels,work,Franz Stangl,2.0,02,1931,1938,Kripo Wels,
+"POINT (14.28583 48.30694 0.0)",Linz,work,Franz Stangl,3.0,03,1938,01.11.1940,Gestapo Linz "Judenreferat",
+"POINT (14.113794 48.280928 0.0)",Schloss Hartheim,work,Franz Stangl,4.0,04,02.11.1940,01.10.1941,Aktion T4 (Hartheim),
+"POINT (11.7401 51.791638 0.0)",Bernburg (Saale),work,Franz Stangl,5.0,05,02.10.1041,28.02.1942,Aktion T4 (Bernburg),
+"POINT (22.568446 51.246454 0.0)",Lublin,work,Franz Stangl,6.0,06,01.03.1942,01.09.1942,creation of Sobibor extermination camp,
+"POINT (23.596133 51.446005 0.0)",Sobibor extermination camp,Lagerkommandant,Franz Stangl,7.0,07,,01.09.1942,Aktion Reinhardt (Sobibor extermination camp),
+"POINT (22.052629 52.631025 0.0)",Treblinka II,Lagerkommandant,Franz Stangl,8.0,08,01.09.1942,30.08.1943,Lagerkommandant,
+"POINT (13.776818 45.649526 0.0)",Triest,work,Franz Stangl,9.0,09,01.09.1943,02.09.1945,fight against partisans and murder of jewish population,with other staff of "Aktion Reinhardt"; until end of WW2
+"POINT (13.070276 47.773353 0.0)",Lager Glasenbach,prisoner,Franz Stangl,10.0,10,01.09.1945,31.12.1946,prisoner of US-american military police,original name "Camp Marcus W. Orr"; estimated date only start month available
+"POINT (14.28583 48.30694 0.0)",Linz,prisoner,Franz Stangl,11.0,11,01.01.1947,31.12.1947,imprisonment,estimated date; only year available;
+"POINT (14.28583 48.30694 0.0)",Linz,escape,Franz Stangl,12.0,12,01.01.1948,31.12.1948,escape of imprisonment,only year available
+"POINT (38.996815 34.802075 0.0)",Syria,escape,Franz Stangl,13.0,13,01.01.1948,31.12.1951,escape,escape from Austria; estimated date
+"POINT (-46.639557 -23.555771 0.0)",São Paulo,hideout,Franz Stangl,14.0,14,01.01.1951,31.12.1967,technician,sought by warrant since the end of the 1950s
+"POINT (6.804476 51.216363 0.0)",Landgericht Düsseldorf,arrest and extradition,Franz Stangl,15.0,15,01.01.1967,28.06.1971,imprisonment,death before life sentence
+"POINT (6.773456 51.227741 0.0)",Düsseldorf,death,Franz Stangl,16.0,16,28.06.1971,28.06.1971,death,death in prison
+"POINT (11.238685 46.339176 0.0)",Termeno (Tramin),fake ID,Josef Mengele,1.0,01,April 1948,Juni 1948,new ID,
+"POINT (12.220235 48.948103 0.0)",Mangolding,left,Josef Mengele,2.0,02,07.09.1948,07.09.1948,left without notice for his hometown,
+"POINT (10.277579 48.452934 0.0)",Günzburg,hiding,Josef Mengele,3.0,03,07.09.1948,April, 1949,hiding in forests and tried to convince wife for escape,
+"POINT (11.433616 46.892672 0.0)",Vipiteno (Sterzing),Goldenes Kreuz (Inn),Josef Mengele,4.0,04,,1 month later,his notes and some blood samples were handed to him,
+"POINT (11.354836 46.498368 0.0)",Bozen,stopover,Josef Mengele,5.0,05,,,meeting secret agent,timespan unclear
+"POINT (8.945935 44.405889 0.0)",Red Cross Office Genua,passport,Josef Mengele,6.0,06,16.05.1949,16.05.1949,visited "Rotes Kreuz" - ordered new passport,exact location for the red cross office at that time needed
+"POINT (14.309304 40.923039 0.0)",prisoner-of-war camp Afragola,capture,Erich Priebke,1.0,01,13.05.1945,,prisoner,
+"POINT (12.569516 44.067829 0.0)",Internment camp Rimini,prisoner,Erich Priebke,2.0,02,,31.12.1946,prisoner,escape - new year's eve 1946
+"POINT (11.4336186 46.8926725)",Sterzing,hideout,Erich Priebke,3.0,03,01.01.1947,22.10.1948,hideout,with wife and 2 children
+
+"POINT (8.9604611 44.4000055)",Via Albaro 38, DAIE
+,health check
+,Erich Priebke,4.0,04,27.07.1948,22.10.1948,health check at DAIE-office
+,estimated dates
+
+"POINT (12.453389 41.902916)",Vatican,passport,Erich Priebke,5.0,05,26.07.1948,26.07.1948,passport,passport issued by Red Cross
+
+"POINT (8.9038057 44.4092931)",Port of Genoa,escape
+,Erich Priebke,6.0,06,23.10.1948,12.11.1948,escape to Argentina
+,embarks steamboat "San Giorgio" to Buenos Aires
+
+"POINT (-58.3815591 -34.6036844)",Buenos Aires,temporary residence
+,Erich Priebke,7.0,07,13.11.1948,31.12.1954,temporary residence
+,estimated dates
+
+"POINT (-71.3102778 -41.1334722)",Bariloche,residence,Erich Priebke,8.0,08,01.01.1954,30.11.1995,residence,estimated dates
+
+"POINT (12.4963655 41.9027835)",Rome,legal proceedings
+,Erich Priebke,9.0,09,01.11.1995,07.03.1998,legal proceedings
+,court descision: life-long house arrest
+
+"POINT (8.9475608 44.4055171)",Argentinian Embassy Genua,paperwork,Josef Mengele,7.0,07,17.05.1949,17.05.1949,requesting visa 
+,exact location should be possible to find
+
+"POINT (8.916454 44.4098622)",Genua Port - North King,borded,Josef Mengele,8.0,08,25.05.1949,25.05.1949,borded the North King
+,
+"POINT (-58.3769692 -34.5749736)",Buenos Aires Port - North King,deboarded 
+,Josef Mengele,9.0,09,22.06.1949,22.06.1949,deboarded the North King
+,
+"POINT (-58.4249025 -34.5784861)",Hotel Palermo - Buenos Aires,guest
+,Josef Mengele,10.0,10,22.06.1949,,checked in with two woman he met on the North King
+,end_year unclear
+
+"POINT (-58.4013433 -34.5936242)",Haus Gerad Malbrances in Calle Arenales 2460,guest,Josef Mengele,11.0,11,,,invited to stay
+,
+"POINT (-58.5578663 -34.4431118)",San Fernando,residence,Adolf Eichmann,1.0,01,1950,,lived there and worked in a nearby metal factory
+,how did he arrive in argentina (ship or plane); where is the metal factory
+
+"POINT (-65.2174438 -26.8082848)",Province Tucuman,residence,Adolf Eichmann,2.0,02,,,lived there and worked at the Capri firm
+,time unclear; location of the firm possible to find?
+
+"POINT (-58.3815591 -34.6036844)",Buenos Aires,residence,Adolf Eichmann,3.0,03,April 1953,,residence,moved to Beunos Aires after the Capri firm went bankrupt in April 1953
+"POINT (-58.6570202 -34.8495878)",Mercedes Benz,work,Adolf Eichmann,4.0,04,March 1959
+,,worked under the alias Ricardo Klement
+,
+"POINT (-58.5694238 -34.4619615)",Garibaldi Street in San Fernando,residence,Adolf Eichmann,5.0,05,,11.05.1960,lived there with his family before beeing captured by Mossad operatives on 11.05.1960,brougth to unknown savehouse before beeing smuggled out of the country per plain
+
+"POINT (12.56738 41.87194)",Italy,Wehrmacht
+,Gerhard Bohne,1.0,01,01.08.1943
+,02.09.1945,soldier,estimated dates
+
+"POINT (12.56738 41.87194)",Italy,prisoner,Gerhard Bohne,2.0,02,03.09.1945,31.09.1946,imprisonment in Italy
+,estimated dates; prisoner for about 1 year
+
+"POINT (6.7734556 51.2277411)",Düsseldorf,work,Gerhard Bohne,3.0,03,31.09.1946,31.12.1948,work at a law practice
+,estimated dates (end of 1946 until 1948)
+
+"POINT (12.5618659 41.8798607)",Via dei Glicini 27, Rome,temporary residence,Gerhard Bohne,4.0,04,31.03.1948
+,06.01.1949,temporary residence
+,estimated dates (spring 1948 until visit of Consul of Argentina)
+
+"POINT (8.94756 44.40551)",Argentinian Embassy Genoa,visit of the consul
+,Gerhard Bohne,5.0,05,07.01.1949,07.01.1949,Visa for Gerhard Bohne
+,Consul Pedro Solari Capurro
+
+"POINT (8.9038057 44.4092931)",Port of Genoa,journey to Buenos Aires
+,Gerhard Bohne,6.0,06,08.01.1949
+,29.01.1949,journey to Buenos Aires,Start: estimated date; End: correct
+
+"POINT (-58.3815591 -34.6036844)",Buenos Aires,arrival at Argentina
+,Gerhard Bohne,7.0,07,29.01.1949,29.01.1949,arrival at Argentina,Boat Ana C
+
+"POINT (-58.3995244 -34.5894876)",Calle de Peña 2484 (Buenos Aires),expected address
+,Gerhard Bohne,8.0,08,29.01.1949,29.01.1949,expected address,like other Nazi-migrants; Carlos Fuldner's address
+
+"POINT (-58.3815591 -34.6036844)",Buenos Aires,stay in Argentina (until the end of Peron's rule),Gerhard Bohne,9.0,09,30.01.1949
+,21.09.1955,stay in Argentina (until the end of Peron's rule),estimated dates
+(end: end of Person's rule)
+"POINT (10.451526 51.165691)",Germany,arrest,Gerhard Bohne,10.0,10,21.09.1955,10.09.1959,arrest (Frankfurter Euthanasieverfahren)
+,estimated dates (start: end of Peron's rule)
+
+"POINT (8.6821267 50.1109221)",Frankfurt am Main,arrest and proceedings (Frankfurter Euthanasieverfahren Aktion T4)
+,Gerhard Bohne,11.0,11,10.09.1959,13.03.1963,arrest and proceedings (Frankfurter Euthanasieverfahren; Aktion T4)
+,dates: wikipedia
+"POINT (9.501785 56.26392)",Denmark,escape to Buenos Aires (via Zürich)
+,Gerhard Bohne,12.0,12,01.07.1963,30.07.1963,escape to Buenos Aires (via Zürich)
+,estimated dates
+
+"POINT (8.541694 47.3768866)",Zürich,escape to Buenos Aires
+,Gerhard Bohne,13.0,13,01.07.1963,30.07.1963,escape to Buenos Aires,estimated dates
+
+"POINT (-58.3815591 -34.6036844)",Buenos Aires,hideout (sister's apartment)
+,Gerhard Bohne,14.0,14,01.07.1963,27.02.1964
+,hideout (sister's apartment),27.02.1964 arrest
+
+"POINT (-58.3815591 -34.6036844)",Buenos Aires,arrest 
+,Gerhard Bohne,15.0,15,27.02.1964,11.11.1966,arrest
+,handed over to German police (11.11.1966)
+
+"POINT (10.451526 51.165691)",Germany,trial,Gerhard Bohne,16.0,16,11.11.1966,22.07.1969,trial,end of trial due to health issues
+
+"POINT (22.0503738 50.5895316)",Rozwadów,SS-commander of forced labor camp
+,Josef Schwammberger,1.0,01,01.09.1942
+,28.02.1943,SS-commander of forced labor camp,estimated start and end dates
+"POINT (22.7744294 49.7823132)",Przemyśl,SS-commander of forced labor camp
+,Josef Schwammberger,2.0,02,01.02.1943,31.12.1943,SS-commander of forced labor camp,Przemysl at the end of 1943 "judenfrei"_estimated start and end dates
+
+"POINT (21.4238101 50.287063)",Mielec,SS-commander of a forced labor camp
+,Josef Schwammberger,3.0,03,01.02.1944,31.12.1944,SS-commander of a forced labor camp,estimated dates and no end date available
+
+"POINT (11.4041024 47.2692124)",Innsbruck,temporary residence
+,Josef Schwammberger,4.0,04,01.01.1945,19.07.1945,temporary residence,no start date available
+"POINT (11.4041024 47.2692124)",Innsbruck,arrest by Austrian police,Josef Schwammberger,5.0,05,20.07.1945,,arrest by Austrian police,no end date available
+"POINT (11.707729 47.3484102)",Camp Oradour (Schwaz) ,arrest at french internment camp
+,Josef Schwammberger,6.0,06,21.07.1945,31.01.1948,arrest,french internment camp_estimated start date/escape date
+
+"POINT (12.56738 41.87194)",Italy,hideout in Italy (unknown location),Josef Schwammberger,7.0,07,01.02.1945,29.01.1949
+,hideout in Italy; unknown location,unkonwn location (maybe Florence)
+
+"POINT (8.9038057 44.4092931)",Port of Genoa,escape to Buenos Aires (Argentina),Josef Schwammberger,8.0,08,29.01.1949,19.03.1949,escape to Argentina
+,escapes via french boat "Campana" to Buenos Aires
+
+"POINT (-63.616672 -38.416097)",Argentina,hideout and residence in Argentina,Josef Schwammberger,9.0,09,19.03.1949,13.11.1987,hideout and residence in Argentina,
+"POINT (-63.616672 -38.416097)",Argentinia,arrest by Argentinian police
+,Josef Schwammberger,10.0,10,13.11.1987,03.05.1990,arrest by Argentinian police,03.05.1990 handed over to German police
+
+"POINT (8.4789498 49.5111406)",Justizvollzugsanstalt Mannheim,arrest (life sentence),Josef Schwammberger,11.0,11,19.05.1992,03.12.2004
+,arrest (life sentence),death in prison
+
+"POINT (15.4399016 47.0711294)",Graz,arrest,Eduard Roschmann,1.0,01,1945,1947,got arrested but later released (concealed himself as ordinary prisoner of war),
+"POINT (11.4682786 48.2701422)",Dachau,arrest,Eduard Roschmann,2.0,02,1947,,got arrested in Graz by bristish military police
+,
+"POINT (8.9490751 44.4054003)",Genua,arrival,Eduard Roschmann,3.0,03,1948,,escaped from Germany
+,
+"POINT (-58.3907264 -34.603004)",Buenos Aires,arrival,Eduard Roschmann,4.0,04,02.10.1948,,,unclear if 02.10 or 10.02
+
+"POINT (7.152437 51.2587724)",Wuppertal,refuge,Hans Ulrich Rudel,1.0,01,,,stayed with Gadermanns parents
+,fled from red army was probably captured and released before using ratlines
+
+"POINT (11.8664583 47.311905)",Zillertal,travel,Hans Ulrich Rudel,2.0,02,1948,,travelled through 
+,
+"POINT (12.251887 41.8032355)",Rome Airport,flight,Hans Ulrich Rudel,3.0,03,,,south tyrolean smugglers and Alois Hudal helped him
+,
+"POINT (-83.3303103 9.164179)",Buenos Aires Airport,arrival,Hans Ulrich Rudel,4.0,04,,08.06.1948
+,arrived per plane
+,
+"POINT (-64.5002827 -31.4205284)",Villa Carlos Paz,residence
+,Hans Ulrich Rudel,5.0,05,,,lived there
+,
+"POINT (15.2 45.1)",Croatia,escape to Austria
+,Ante Pavelic
+,1.0,01,01.05.1945
+,08.07.1945
+,escape to Austria
+,
+"POINT (14.550072 47.516231)",Austria,hideout in British occupation zone
+,Ante Pavelic
+,2.0,02,09.05.1945,01.04.1946,hideout in British occupation zone,estimated dates
+
+"POINT (12.4718908 41.9076496)",Via Giuseppe Gioachino Belli 3, Rome
+,hideout at Collegio Pio Pontificio ,Ante Pavelic
+,3.0,03,02.04.1946,30.04.1946,hideout at Collegio Pio Pontificio 
+,estimated dates
+"POINT (12.6485192 41.7497932)",Castel Gandolfo,hideout at Castel Gandolfo
+,Ante Pavelic
+,4.0,04,01.05.1946,31.12.1946,hideout at Castel Gandolfo,estimated dates and serveral different locations in 1946
+
+"POINT (12.4755576 41.9050995)",San Girolamo dei Croati, Via Tomacelli 132 ,hideout at San Girolami
+,Ante Pavelic
+,5.0,05,,15.01.1947,hideout at San Girolami,estimated dates
+
+"POINT (12.4798078 41.8841405)",Santa Sabina,hideout at dominican monastery Santa Sabina
+,Ante Pavelic
+,6.0,06
+,15.01.1947,15.04.1947,hideout at dominican monastery Santa Sabina,estimated dates
+
+"POINT (12.4718908 41.9076496)",Via Giuseppe Gioachino Belli 3, Rome
+,hideout at several apartments in Rome,Ante Pavelic
+,7.0,07,01.03.1947,30.06.1947,hideout at several apartments in Rome,
+"POINT (12.4686508 41.8888244)",Via Giacomo Venezian 17, Rome,hideout under protection of the Vatican (Via Giacomo Veneziano 17-C),Ante Pavelic
+,8.0,08,07.08.1947,10.10.1948,hideout under protection of the Vatican (Via Giacomo Veneziano 17-C),estimated dates
+"POINT (12.6485192 41.7497932)",Castel Gandolfo,hideout at a monastery at Castel Gandolfo
+,Ante Pavelic
+,9.0,09,01.07.1948,10.10.1948,hideout at a monastery at Castel Gandolfo,estimated dates
+"POINT (8.9038057 44.4092931)",Port of Genoa,escape via ship to Buenos Aires
+,Ante Pavelic
+,10.0,10,11.10.1948,05.11.1948,escape via ship to Buenos Aires,exact date of arrival 06.11.1948
+"POINT (-58.37696 -34.57497)",Port of Buenos Aires
+,arrival at the port of Buenos Aires
+,Ante Pavelic
+,11.0,11,06.11.1948,06.11.1948,arrival,
+"POINT (-58.4595982 -34.56081)",Av. Olazábal 2525,meeting with important Ustasha members,Ante Pavelic
+,12.0,12,06.11.1948,06.11.1948,,
+"POINT (12.4716594 41.8996695)",Via della Pace 20, Rome,catholic bishop,Alois Hudal
+,1.0,01,1923,1952,organizer of ratlines and head of the Austrian-German congregation of Santa Maria dell'Anima in Rome (Rektor 1937-1952)
+,important organizer of ratlines to South America
+
+"POINT (4.835659 45.764043)",Lyon,left Lyon to fight in Germany against the Allied Troups
+,Klaus Barbie
+,1.0,01,01.08.1944,31.08.1944,Nikolaus “Klaus” Barbie ("the butcher of Lyon"),estimated dates
+
+"POINT (10.451526 51.165691)",Germany,return to Germany,Klaus Barbie
+,2.0,02,01.08.1944,09.05.1945,joins the army again until the end of WW2,estimated dates
+
+"POINT (8.7657677 50.8018843)",Marburg,residence under an assumed name
+,Klaus Barbie
+,3.0,03,01.01.1946,31.12.1946,residence under an assumed name,estimated dates
+
+"POINT (10.451526 51.165691)",Germany,residence in US-occupied zone,Klaus Barbie
+,4.0,04
+,01.01.1947,01.03.1951
+,,estimated dates and location
+
+"POINT (8.92143 44.41707)",Genova Piazza Principe,US-secret service hands Klaus Barbie over to Draganovic
+,Klaus Barbie
+,5.0,05
+,01.03.1951
+,15.03.1951,Draganovic organizes the escape to South America
+,estimated dates
+
+"POINT (8.9520038 44.4041693)",Consolati Bolivia,visa issued by Bolivian Consulate
+,Klaus Barbie
+,6.0,06,16.03.1951,16.03.1951,Draganovic brings Barbie to the consulate and to the RED CROSS in Genoa
+,
+"POINT (8.9604611 44.4000055)",Via Albaro 38 (DIAE),DAIE,Klaus Barbie
+,7.0,07,19.03.1951,19.03.1951,,
+"POINT (8.9038057 44.4092931)",Port of Genoa,Barbie bords the ship "Corrientes"
+,Klaus Barbie
+,8.0,08,22.03.1951,22.03.1951,Barbie bords the ship "Corrientes" with a group of Nazis to Argentina
+,
+"POINT (-58.3815591 -34.6036844)",Argentina,escape to Argentina,Klaus Barbie
+,9.0,09,12.04.1951
+,12.04.1951,,no exact location available and estimated date (travel duration of 3 weeks starts: 22.03.1951)
+
+"POINT (-68.1192936 -16.489689)",La Paz (Bolivia),residence with family
+,Klaus Barbie
+,10.0,10,22.04.1951,22.04.1951,,no exact dates and locations available
+
+"POINT (12.4755576 41.9050995)",San Girolamo dei Croati (Via Tomacelli 132),priest,Krunoslav Draganović,1.0,01,01.08.1943,01.01.1967,organizer of ratlines and escapes
+,returns 1967 to Croatia and spends some time in Austria during the beginning of the 1960s
+
