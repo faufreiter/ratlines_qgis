@@ -8,7 +8,6 @@
         <meta name="apple-mobile-web-app-capable" content="yes">
         <link rel="stylesheet" href="css/leaflet.css">
         <link rel="stylesheet" href="css/qgis2web.css"><link rel="stylesheet" href="css/fontawesome-all.min.css">
-        <link rel="stylesheet" href="css/leaflet-search.css">
         <link rel="stylesheet" href="css/leaflet-measure.css">
         <style>
         #map {
@@ -19,6 +18,7 @@
         <title></title>
     </head>
     <body>
+        <center><h1 style="font-size: 24px; font-family: 'Arial', sans-serif;">Ratlines: Tracing Nazi Escapes to America</h1></center>
         <div id="map">
         </div>
         <script src="js/qgis2web_expressions.js"></script>
@@ -31,18 +31,13 @@
         <script src="js/labelgun.min.js"></script>
         <script src="js/labels.js"></script>
         <script src="js/leaflet-measure.js"></script>
-        <script src="js/leaflet-search.js"></script>
-        <script src="data/reproject_escaperoutes_2.js"></script>
-        <script src="data/paths_3857_3.js"></script>
+        <script src="data/world_1945_0.js"></script>
+        <script src="data/paths_final_2.js"></script>
+        <script src="data/Escape_routesreduced_data_3.js"></script>
         <script>
-        var highlightLayer;
-        function highlightFeature(e) {
-            highlightLayer = e.target;
-            highlightLayer.openPopup();
-        }
         var map = L.map('map', {
             zoomControl:true, maxZoom:28, minZoom:1
-        })
+        }).fitBounds([[26.340560087658822,-66.8476852912331],[63.901761942367095,56.402234828334215]]);
         var hash = new L.Hash(map);
         map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
         var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
@@ -60,64 +55,394 @@
         .className += ' fas fa-ruler';
         var bounds_group = new L.featureGroup([]);
         function setBounds() {
-            if (bounds_group.getLayers().length) {
-                map.fitBounds(bounds_group.getBounds());
-            }
         }
-        map.createPane('pane_GoogleTerrainHybrid_0');
-        map.getPane('pane_GoogleTerrainHybrid_0').style.zIndex = 400;
-        var layer_GoogleTerrainHybrid_0 = L.tileLayer('https://mt1.google.com/vt/lyrs=p&x={x}&y={y}&z={z}', {
-            pane: 'pane_GoogleTerrainHybrid_0',
-            opacity: 1.0,
-            attribution: '',
-            minZoom: 1,
-            maxZoom: 28,
-        });
-        layer_GoogleTerrainHybrid_0;
-        map.addLayer(layer_GoogleTerrainHybrid_0);
-        map.createPane('pane_EsriLightGray_1');
-        map.getPane('pane_EsriLightGray_1').style.zIndex = 401;
-        var layer_EsriLightGray_1 = L.tileLayer('https://server.arcgisonline.com/arcgis/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}', {
-            pane: 'pane_EsriLightGray_1',
-            opacity: 1.0,
-            attribution: '',
-            minZoom: 1,
-            maxZoom: 28,
-        });
-        layer_EsriLightGray_1;
-        map.addLayer(layer_EsriLightGray_1);
-        function pop_reproject_escaperoutes_2(feature, layer) {
-            layer.on({
-                mouseout: function(e) {
-                    if (typeof layer.closePopup == 'function') {
-                        layer.closePopup();
-                    } else {
-                        layer.eachLayer(function(feature){
-                            feature.closePopup()
-                        });
-                    }
-                },
-                mouseover: highlightFeature,
-            });
+        function pop_world_1945_0(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['Name'] !== null ? autolinker.link(feature.properties['Name'].toLocaleString()) : '') + '</td>\
+                        <td colspan="2">' + (feature.properties['NAME'] !== null ? autolinker.link(feature.properties['NAME'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2"><strong>criminal</strong><br />' + (feature.properties['criminal'] !== null ? autolinker.link(feature.properties['criminal'].toLocaleString()) : '') + '</td>\
+                        <td colspan="2">' + (feature.properties['ABBREVN'] !== null ? autolinker.link(feature.properties['ABBREVN'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['Copy of nu'] !== null ? autolinker.link(feature.properties['Copy of nu'].toLocaleString()) : '') + '</td>\
+                        <td colspan="2">' + (feature.properties['SUBJECTO'] !== null ? autolinker.link(feature.properties['SUBJECTO'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['BORDERPRECISION'] !== null ? autolinker.link(feature.properties['BORDERPRECISION'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['PARTOF'] !== null ? autolinker.link(feature.properties['PARTOF'].toLocaleString()) : '') + '</td>\
                     </tr>\
                 </table>';
             layer.bindPopup(popupContent, {maxHeight: 400});
         }
 
-        function style_reproject_escaperoutes_2_0(feature) {
+        function style_world_1945_0_0() {
+            return {
+                pane: 'pane_world_1945_0',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(255,255,255,1.0)',
+                interactive: true,
+            }
+        }
+        map.createPane('pane_world_1945_0');
+        map.getPane('pane_world_1945_0').style.zIndex = 400;
+        map.getPane('pane_world_1945_0').style['mix-blend-mode'] = 'normal';
+        var layer_world_1945_0 = new L.geoJson(json_world_1945_0, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_world_1945_0',
+            layerName: 'layer_world_1945_0',
+            pane: 'pane_world_1945_0',
+            onEachFeature: pop_world_1945_0,
+            style: style_world_1945_0_0,
+        });
+        bounds_group.addLayer(layer_world_1945_0);
+        map.addLayer(layer_world_1945_0);
+        map.createPane('pane_GoogleSatellite_1');
+        map.getPane('pane_GoogleSatellite_1').style.zIndex = 401;
+        var layer_GoogleSatellite_1 = L.tileLayer('https://mt1.google.com/vt/lyrs=s&x={x}&y={y}&z={z}', {
+            pane: 'pane_GoogleSatellite_1',
+            opacity: 0.3,
+            attribution: '',
+            minZoom: 1,
+            maxZoom: 28,
+        });
+        layer_GoogleSatellite_1;
+        map.addLayer(layer_GoogleSatellite_1);
+        function pop_paths_final_2(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <th scope="row">criminal</th>\
+                        <td>' + (feature.properties['criminal'] !== null ? autolinker.link(feature.properties['criminal'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">begin</th>\
+                        <td>' + (feature.properties['begin'] !== null ? autolinker.link(feature.properties['begin'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">end</th>\
+                        <td>' + (feature.properties['end'] !== null ? autolinker.link(feature.properties['end'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_paths_final_2_0(feature) {
             switch(String(feature.properties['criminal'])) {
                 case 'Adolf Eichmann':
                     return {
-                pane: 'pane_reproject_escaperoutes_2',
+                pane: 'pane_paths_final_2',
+                opacity: 1,
+                color: 'rgba(68,1,84,1.0)',
+                dashArray: '',
+                lineCap: 'round',
+                lineJoin: 'round',
+                weight: 3.0,
+                fillOpacity: 0,
+                interactive: true,
+            }
+                    break;
+                case 'Alois Hudal':
+                    return {
+                pane: 'pane_paths_final_2',
+                opacity: 1,
+                color: 'rgba(72,22,104,1.0)',
+                dashArray: '',
+                lineCap: 'round',
+                lineJoin: 'round',
+                weight: 3.0,
+                fillOpacity: 0,
+                interactive: true,
+            }
+                    break;
+                case 'Ante Pavelic':
+                    return {
+                pane: 'pane_paths_final_2',
+                opacity: 1,
+                color: 'rgba(71,40,120,1.0)',
+                dashArray: '',
+                lineCap: 'round',
+                lineJoin: 'round',
+                weight: 3.0,
+                fillOpacity: 0,
+                interactive: true,
+            }
+                    break;
+                case 'Aribert Heim':
+                    return {
+                pane: 'pane_paths_final_2',
+                opacity: 1,
+                color: 'rgba(68,58,130,1.0)',
+                dashArray: '',
+                lineCap: 'round',
+                lineJoin: 'round',
+                weight: 3.0,
+                fillOpacity: 0,
+                interactive: true,
+            }
+                    break;
+                case 'Branko Benzon':
+                    return {
+                pane: 'pane_paths_final_2',
+                opacity: 1,
+                color: 'rgba(62,74,137,1.0)',
+                dashArray: '',
+                lineCap: 'round',
+                lineJoin: 'round',
+                weight: 3.0,
+                fillOpacity: 0,
+                interactive: true,
+            }
+                    break;
+                case 'Carl Vaernet':
+                    return {
+                pane: 'pane_paths_final_2',
+                opacity: 1,
+                color: 'rgba(56,90,140,1.0)',
+                dashArray: '',
+                lineCap: 'round',
+                lineJoin: 'round',
+                weight: 3.0,
+                fillOpacity: 0,
+                interactive: true,
+            }
+                    break;
+                case 'Carlos Fuldner':
+                    return {
+                pane: 'pane_paths_final_2',
+                opacity: 1,
+                color: 'rgba(49,104,142,1.0)',
+                dashArray: '',
+                lineCap: 'round',
+                lineJoin: 'round',
+                weight: 3.0,
+                fillOpacity: 0,
+                interactive: true,
+            }
+                    break;
+                case 'Eduard Roschmann':
+                    return {
+                pane: 'pane_paths_final_2',
+                opacity: 1,
+                color: 'rgba(42,117,142,1.0)',
+                dashArray: '',
+                lineCap: 'round',
+                lineJoin: 'round',
+                weight: 3.0,
+                fillOpacity: 0,
+                interactive: true,
+            }
+                    break;
+                case 'Erich Priebke':
+                    return {
+                pane: 'pane_paths_final_2',
+                opacity: 1,
+                color: 'rgba(38,131,142,1.0)',
+                dashArray: '',
+                lineCap: 'round',
+                lineJoin: 'round',
+                weight: 3.0,
+                fillOpacity: 0,
+                interactive: true,
+            }
+                    break;
+                case 'Franz Stangl':
+                    return {
+                pane: 'pane_paths_final_2',
+                opacity: 1,
+                color: 'rgba(33,144,141,1.0)',
+                dashArray: '',
+                lineCap: 'round',
+                lineJoin: 'round',
+                weight: 3.0,
+                fillOpacity: 0,
+                interactive: true,
+            }
+                    break;
+                case 'Gerhard Bohne':
+                    return {
+                pane: 'pane_paths_final_2',
+                opacity: 1,
+                color: 'rgba(30,158,137,1.0)',
+                dashArray: '',
+                lineCap: 'round',
+                lineJoin: 'round',
+                weight: 3.0,
+                fillOpacity: 0,
+                interactive: true,
+            }
+                    break;
+                case 'Gino Monti de Valsassina':
+                    return {
+                pane: 'pane_paths_final_2',
+                opacity: 1,
+                color: 'rgba(37,171,130,1.0)',
+                dashArray: '',
+                lineCap: 'round',
+                lineJoin: 'round',
+                weight: 3.0,
+                fillOpacity: 0,
+                interactive: true,
+            }
+                    break;
+                case 'Hans Ulrich Rudel':
+                    return {
+                pane: 'pane_paths_final_2',
+                opacity: 1,
+                color: 'rgba(53,183,121,1.0)',
+                dashArray: '',
+                lineCap: 'round',
+                lineJoin: 'round',
+                weight: 3.0,
+                fillOpacity: 0,
+                interactive: true,
+            }
+                    break;
+                case 'Josef Mengele':
+                    return {
+                pane: 'pane_paths_final_2',
+                opacity: 1,
+                color: 'rgba(78,195,107,1.0)',
+                dashArray: '',
+                lineCap: 'round',
+                lineJoin: 'round',
+                weight: 3.0,
+                fillOpacity: 0,
+                interactive: true,
+            }
+                    break;
+                case 'Josef Schwammberger':
+                    return {
+                pane: 'pane_paths_final_2',
+                opacity: 1,
+                color: 'rgba(108,206,89,1.0)',
+                dashArray: '',
+                lineCap: 'round',
+                lineJoin: 'round',
+                weight: 3.0,
+                fillOpacity: 0,
+                interactive: true,
+            }
+                    break;
+                case 'Klaus Barbie':
+                    return {
+                pane: 'pane_paths_final_2',
+                opacity: 1,
+                color: 'rgba(143,215,68,1.0)',
+                dashArray: '',
+                lineCap: 'round',
+                lineJoin: 'round',
+                weight: 3.0,
+                fillOpacity: 0,
+                interactive: true,
+            }
+                    break;
+                case 'Pierre Daye':
+                    return {
+                pane: 'pane_paths_final_2',
+                opacity: 1,
+                color: 'rgba(180,222,44,1.0)',
+                dashArray: '',
+                lineCap: 'round',
+                lineJoin: 'round',
+                weight: 3.0,
+                fillOpacity: 0,
+                interactive: true,
+            }
+                    break;
+                case 'Walther Rauff':
+                    return {
+                pane: 'pane_paths_final_2',
+                opacity: 1,
+                color: 'rgba(218,226,25,1.0)',
+                dashArray: '',
+                lineCap: 'round',
+                lineJoin: 'round',
+                weight: 3.0,
+                fillOpacity: 0,
+                interactive: true,
+            }
+                    break;
+                default:
+                    return {
+                pane: 'pane_paths_final_2',
+                opacity: 1,
+                color: 'rgba(253,231,37,1.0)',
+                dashArray: '',
+                lineCap: 'round',
+                lineJoin: 'round',
+                weight: 3.0,
+                fillOpacity: 0,
+                interactive: true,
+            }
+                    break;
+            }
+        }
+        map.createPane('pane_paths_final_2');
+        map.getPane('pane_paths_final_2').style.zIndex = 402;
+        map.getPane('pane_paths_final_2').style['mix-blend-mode'] = 'normal';
+        var layer_paths_final_2 = new L.geoJson(json_paths_final_2, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_paths_final_2',
+            layerName: 'layer_paths_final_2',
+            pane: 'pane_paths_final_2',
+            onEachFeature: pop_paths_final_2,
+            style: style_paths_final_2_0,
+        });
+        bounds_group.addLayer(layer_paths_final_2);
+        map.addLayer(layer_paths_final_2);
+        function pop_Escape_routesreduced_data_3(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <th scope="row">Name</th>\
+                        <td>' + (feature.properties['Name'] !== null ? autolinker.link(feature.properties['Name'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Beschreibung</th>\
+                        <td>' + (feature.properties['Beschreibung'] !== null ? autolinker.link(feature.properties['Beschreibung'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">criminal</th>\
+                        <td>' + (feature.properties['criminal'] !== null ? autolinker.link(feature.properties['criminal'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">order</th>\
+                        <td>' + (feature.properties['order'] !== null ? autolinker.link(feature.properties['order'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">start_year</th>\
+                        <td>' + (feature.properties['start_year'] !== null ? autolinker.link(feature.properties['start_year'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">end_year</th>\
+                        <td>' + (feature.properties['end_year'] !== null ? autolinker.link(feature.properties['end_year'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">activity</th>\
+                        <td>' + (feature.properties['activity'] !== null ? autolinker.link(feature.properties['activity'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">notes</th>\
+                        <td>' + (feature.properties['notes'] !== null ? autolinker.link(feature.properties['notes'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_Escape_routesreduced_data_3_0(feature) {
+            switch(String(feature.properties['criminal'])) {
+                case 'Adolf Eichmann':
+                    return {
+                pane: 'pane_Escape_routesreduced_data_3',
                 radius: 4.0,
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
@@ -133,7 +458,7 @@
                     break;
                 case 'Alois Hudal':
                     return {
-                pane: 'pane_reproject_escaperoutes_2',
+                pane: 'pane_Escape_routesreduced_data_3',
                 radius: 4.0,
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
@@ -143,13 +468,13 @@
                 weight: 1,
                 fill: true,
                 fillOpacity: 1,
-                fillColor: 'rgba(227,26,28,1.0)',
+                fillColor: 'rgba(72,21,103,1.0)',
                 interactive: true,
             }
                     break;
                 case 'Ante Pavelic':
                     return {
-                pane: 'pane_reproject_escaperoutes_2',
+                pane: 'pane_Escape_routesreduced_data_3',
                 radius: 4.0,
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
@@ -159,13 +484,77 @@
                 weight: 1,
                 fill: true,
                 fillOpacity: 1,
-                fillColor: 'rgba(68,58,130,1.0)',
+                fillColor: 'rgba(72,38,119,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'Aribert Heim':
+                    return {
+                pane: 'pane_Escape_routesreduced_data_3',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(69,55,129,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'Branko Benzon':
+                    return {
+                pane: 'pane_Escape_routesreduced_data_3',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(64,70,136,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'Carl Vaernet':
+                    return {
+                pane: 'pane_Escape_routesreduced_data_3',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(57,86,139,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'Carlos Fuldner':
+                    return {
+                pane: 'pane_Escape_routesreduced_data_3',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(51,100,141,1.0)',
                 interactive: true,
             }
                     break;
                 case 'Eduard Roschmann':
                     return {
-                pane: 'pane_reproject_escaperoutes_2',
+                pane: 'pane_Escape_routesreduced_data_3',
                 radius: 4.0,
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
@@ -175,13 +564,13 @@
                 weight: 1,
                 fill: true,
                 fillOpacity: 1,
-                fillColor: 'rgba(59,82,139,1.0)',
+                fillColor: 'rgba(44,112,142,1.0)',
                 interactive: true,
             }
                     break;
                 case 'Erich Priebke':
                     return {
-                pane: 'pane_reproject_escaperoutes_2',
+                pane: 'pane_Escape_routesreduced_data_3',
                 radius: 4.0,
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
@@ -191,13 +580,13 @@
                 weight: 1,
                 fill: true,
                 fillOpacity: 1,
-                fillColor: 'rgba(49,104,142,1.0)',
+                fillColor: 'rgba(40,125,142,1.0)',
                 interactive: true,
             }
                     break;
                 case 'Franz Stangl':
                     return {
-                pane: 'pane_reproject_escaperoutes_2',
+                pane: 'pane_Escape_routesreduced_data_3',
                 radius: 4.0,
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
@@ -207,13 +596,13 @@
                 weight: 1,
                 fill: true,
                 fillOpacity: 1,
-                fillColor: 'rgba(41,124,142,1.0)',
+                fillColor: 'rgba(35,138,142,1.0)',
                 interactive: true,
             }
                     break;
                 case 'Gerhard Bohne':
                     return {
-                pane: 'pane_reproject_escaperoutes_2',
+                pane: 'pane_Escape_routesreduced_data_3',
                 radius: 4.0,
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
@@ -223,13 +612,29 @@
                 weight: 1,
                 fill: true,
                 fillOpacity: 1,
-                fillColor: 'rgba(33,144,141,1.0)',
+                fillColor: 'rgba(31,150,139,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'Gino Monti de Valsassina':
+                    return {
+                pane: 'pane_Escape_routesreduced_data_3',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(32,163,134,1.0)',
                 interactive: true,
             }
                     break;
                 case 'Hans Ulrich Rudel':
                     return {
-                pane: 'pane_reproject_escaperoutes_2',
+                pane: 'pane_Escape_routesreduced_data_3',
                 radius: 4.0,
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
@@ -239,13 +644,13 @@
                 weight: 1,
                 fill: true,
                 fillOpacity: 1,
-                fillColor: 'rgba(33,164,134,1.0)',
+                fillColor: 'rgba(41,175,127,1.0)',
                 interactive: true,
             }
                     break;
                 case 'Josef Mengele':
                     return {
-                pane: 'pane_reproject_escaperoutes_2',
+                pane: 'pane_Escape_routesreduced_data_3',
                 radius: 4.0,
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
@@ -255,13 +660,13 @@
                 weight: 1,
                 fill: true,
                 fillOpacity: 1,
-                fillColor: 'rgba(53,183,121,1.0)',
+                fillColor: 'rgba(60,187,117,1.0)',
                 interactive: true,
             }
                     break;
                 case 'Josef Schwammberger':
                     return {
-                pane: 'pane_reproject_escaperoutes_2',
+                pane: 'pane_Escape_routesreduced_data_3',
                 radius: 4.0,
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
@@ -271,13 +676,13 @@
                 weight: 1,
                 fill: true,
                 fillOpacity: 1,
-                fillColor: 'rgba(93,201,99,1.0)',
+                fillColor: 'rgba(86,198,103,1.0)',
                 interactive: true,
             }
                     break;
                 case 'Klaus Barbie':
                     return {
-                pane: 'pane_reproject_escaperoutes_2',
+                pane: 'pane_Escape_routesreduced_data_3',
                 radius: 4.0,
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
@@ -287,13 +692,13 @@
                 weight: 1,
                 fill: true,
                 fillOpacity: 1,
-                fillColor: 'rgba(143,215,68,1.0)',
+                fillColor: 'rgba(115,208,85,1.0)',
                 interactive: true,
             }
                     break;
-                case 'Krunoslav Draganovi?':
+                case 'Krunoslav Draganović':
                     return {
-                pane: 'pane_reproject_escaperoutes_2',
+                pane: 'pane_Escape_routesreduced_data_3',
                 radius: 4.0,
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
@@ -303,13 +708,45 @@
                 weight: 1,
                 fill: true,
                 fillOpacity: 1,
-                fillColor: 'rgba(227,26,28,1.0)',
+                fillColor: 'rgba(148,216,64,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'Pierre Daye':
+                    return {
+                pane: 'pane_Escape_routesreduced_data_3',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(184,222,41,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'Walther Rauff':
+                    return {
+                pane: 'pane_Escape_routesreduced_data_3',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(220,227,25,1.0)',
                 interactive: true,
             }
                     break;
                 default:
                     return {
-                pane: 'pane_reproject_escaperoutes_2',
+                pane: 'pane_Escape_routesreduced_data_3',
                 radius: 4.0,
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
@@ -325,224 +762,36 @@
                     break;
             }
         }
-        map.createPane('pane_reproject_escaperoutes_2');
-        map.getPane('pane_reproject_escaperoutes_2').style.zIndex = 402;
-        map.getPane('pane_reproject_escaperoutes_2').style['mix-blend-mode'] = 'normal';
-        var layer_reproject_escaperoutes_2 = new L.geoJson(json_reproject_escaperoutes_2, {
+        map.createPane('pane_Escape_routesreduced_data_3');
+        map.getPane('pane_Escape_routesreduced_data_3').style.zIndex = 403;
+        map.getPane('pane_Escape_routesreduced_data_3').style['mix-blend-mode'] = 'normal';
+        var layer_Escape_routesreduced_data_3 = new L.geoJson(json_Escape_routesreduced_data_3, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_reproject_escaperoutes_2',
-            layerName: 'layer_reproject_escaperoutes_2',
-            pane: 'pane_reproject_escaperoutes_2',
-            onEachFeature: pop_reproject_escaperoutes_2,
+            dataVar: 'json_Escape_routesreduced_data_3',
+            layerName: 'layer_Escape_routesreduced_data_3',
+            pane: 'pane_Escape_routesreduced_data_3',
+            onEachFeature: pop_Escape_routesreduced_data_3,
             pointToLayer: function (feature, latlng) {
                 var context = {
                     feature: feature,
                     variables: {}
                 };
-                return L.circleMarker(latlng, style_reproject_escaperoutes_2_0(feature));
+                return L.circleMarker(latlng, style_Escape_routesreduced_data_3_0(feature));
             },
         });
-        bounds_group.addLayer(layer_reproject_escaperoutes_2);
-        map.addLayer(layer_reproject_escaperoutes_2);
-        function pop_paths_3857_3(feature, layer) {
-            layer.on({
-                mouseout: function(e) {
-                    if (typeof layer.closePopup == 'function') {
-                        layer.closePopup();
-                    } else {
-                        layer.eachLayer(function(feature){
-                            feature.closePopup()
-                        });
-                    }
-                },
-                mouseover: highlightFeature,
-            });
-            var popupContent = '<table>\
-                    <tr>\
-                        <td colspan="2"><strong>criminal</strong><br />' + (feature.properties['criminal'] !== null ? autolinker.link(feature.properties['criminal'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['begin'] !== null ? autolinker.link(feature.properties['begin'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['end'] !== null ? autolinker.link(feature.properties['end'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                </table>';
-            layer.bindPopup(popupContent, {maxHeight: 400});
-        }
-
-        function style_paths_3857_3_0(feature) {
-            switch(String(feature.properties['criminal'])) {
-                case 'Adolf Eichmann':
-                    return {
-                pane: 'pane_paths_3857_3',
-                opacity: 1,
-                color: 'rgba(68,1,84,1.0)',
-                dashArray: '',
-                lineCap: 'round',
-                lineJoin: 'round',
-                weight: 3.0,
-                fillOpacity: 0,
-                interactive: true,
-            }
-                    break;
-                case 'Ante Pavelic':
-                    return {
-                pane: 'pane_paths_3857_3',
-                opacity: 1,
-                color: 'rgba(72,37,118,1.0)',
-                dashArray: '',
-                lineCap: 'round',
-                lineJoin: 'round',
-                weight: 3.0,
-                fillOpacity: 0,
-                interactive: true,
-            }
-                    break;
-                case 'Eduard Roschmann':
-                    return {
-                pane: 'pane_paths_3857_3',
-                opacity: 1,
-                color: 'rgba(65,67,135,1.0)',
-                dashArray: '',
-                lineCap: 'round',
-                lineJoin: 'round',
-                weight: 3.0,
-                fillOpacity: 0,
-                interactive: true,
-            }
-                    break;
-                case 'Erich Priebke':
-                    return {
-                pane: 'pane_paths_3857_3',
-                opacity: 1,
-                color: 'rgba(52,95,141,1.0)',
-                dashArray: '',
-                lineCap: 'round',
-                lineJoin: 'round',
-                weight: 3.0,
-                fillOpacity: 0,
-                interactive: true,
-            }
-                    break;
-                case 'Franz Stangl':
-                    return {
-                pane: 'pane_paths_3857_3',
-                opacity: 1,
-                color: 'rgba(42,120,142,1.0)',
-                dashArray: '',
-                lineCap: 'round',
-                lineJoin: 'round',
-                weight: 3.0,
-                fillOpacity: 0,
-                interactive: true,
-            }
-                    break;
-                case 'Gerhard Bohne':
-                    return {
-                pane: 'pane_paths_3857_3',
-                opacity: 1,
-                color: 'rgba(33,144,141,1.0)',
-                dashArray: '',
-                lineCap: 'round',
-                lineJoin: 'round',
-                weight: 3.0,
-                fillOpacity: 0,
-                interactive: true,
-            }
-                    break;
-                case 'Hans Ulrich Rudel':
-                    return {
-                pane: 'pane_paths_3857_3',
-                opacity: 1,
-                color: 'rgba(35,168,132,1.0)',
-                dashArray: '',
-                lineCap: 'round',
-                lineJoin: 'round',
-                weight: 3.0,
-                fillOpacity: 0,
-                interactive: true,
-            }
-                    break;
-                case 'Josef Mengele':
-                    return {
-                pane: 'pane_paths_3857_3',
-                opacity: 1,
-                color: 'rgba(67,191,112,1.0)',
-                dashArray: '',
-                lineCap: 'round',
-                lineJoin: 'round',
-                weight: 3.0,
-                fillOpacity: 0,
-                interactive: true,
-            }
-                    break;
-                case 'Josef Schwammberger':
-                    return {
-                pane: 'pane_paths_3857_3',
-                opacity: 1,
-                color: 'rgba(122,209,81,1.0)',
-                dashArray: '',
-                lineCap: 'round',
-                lineJoin: 'round',
-                weight: 3.0,
-                fillOpacity: 0,
-                interactive: true,
-            }
-                    break;
-                case 'Klaus Barbie':
-                    return {
-                pane: 'pane_paths_3857_3',
-                opacity: 1,
-                color: 'rgba(188,223,39,1.0)',
-                dashArray: '',
-                lineCap: 'round',
-                lineJoin: 'round',
-                weight: 3.0,
-                fillOpacity: 0,
-                interactive: true,
-            }
-                    break;
-                default:
-                    return {
-                pane: 'pane_paths_3857_3',
-                opacity: 1,
-                color: 'rgba(253,231,37,1.0)',
-                dashArray: '',
-                lineCap: 'round',
-                lineJoin: 'round',
-                weight: 3.0,
-                fillOpacity: 0,
-                interactive: true,
-            }
-                    break;
-            }
-        }
-        map.createPane('pane_paths_3857_3');
-        map.getPane('pane_paths_3857_3').style.zIndex = 403;
-        map.getPane('pane_paths_3857_3').style['mix-blend-mode'] = 'normal';
-        var layer_paths_3857_3 = new L.geoJson(json_paths_3857_3, {
-            attribution: '',
-            interactive: true,
-            dataVar: 'json_paths_3857_3',
-            layerName: 'layer_paths_3857_3',
-            pane: 'pane_paths_3857_3',
-            onEachFeature: pop_paths_3857_3,
-            style: style_paths_3857_3_0,
-        });
-        bounds_group.addLayer(layer_paths_3857_3);
-        map.addLayer(layer_paths_3857_3);
+        bounds_group.addLayer(layer_Escape_routesreduced_data_3);
+        map.addLayer(layer_Escape_routesreduced_data_3);
         var baseMaps = {};
-        L.control.layers(baseMaps,{'paths_3857<br /><table><tr><td style="text-align: center;"><img src="legend/paths_3857_3_AdolfEichmann0.png" /></td><td>Adolf Eichmann</td></tr><tr><td style="text-align: center;"><img src="legend/paths_3857_3_AntePavelic1.png" /></td><td>Ante Pavelic</td></tr><tr><td style="text-align: center;"><img src="legend/paths_3857_3_EduardRoschmann2.png" /></td><td>Eduard Roschmann</td></tr><tr><td style="text-align: center;"><img src="legend/paths_3857_3_ErichPriebke3.png" /></td><td>Erich Priebke</td></tr><tr><td style="text-align: center;"><img src="legend/paths_3857_3_FranzStangl4.png" /></td><td>Franz Stangl</td></tr><tr><td style="text-align: center;"><img src="legend/paths_3857_3_GerhardBohne5.png" /></td><td>Gerhard Bohne</td></tr><tr><td style="text-align: center;"><img src="legend/paths_3857_3_HansUlrichRudel6.png" /></td><td>Hans Ulrich Rudel</td></tr><tr><td style="text-align: center;"><img src="legend/paths_3857_3_JosefMengele7.png" /></td><td>Josef Mengele</td></tr><tr><td style="text-align: center;"><img src="legend/paths_3857_3_JosefSchwammberger8.png" /></td><td>Josef Schwammberger</td></tr><tr><td style="text-align: center;"><img src="legend/paths_3857_3_KlausBarbie9.png" /></td><td>Klaus Barbie</td></tr><tr><td style="text-align: center;"><img src="legend/paths_3857_3_10.png" /></td><td></td></tr></table>': layer_paths_3857_3,'reproject_escaperoutes<br /><table><tr><td style="text-align: center;"><img src="legend/reproject_escaperoutes_2_AdolfEichmann0.png" /></td><td>Adolf Eichmann</td></tr><tr><td style="text-align: center;"><img src="legend/reproject_escaperoutes_2_AloisHudal1.png" /></td><td>Alois Hudal</td></tr><tr><td style="text-align: center;"><img src="legend/reproject_escaperoutes_2_AntePavelic2.png" /></td><td>Ante Pavelic</td></tr><tr><td style="text-align: center;"><img src="legend/reproject_escaperoutes_2_EduardRoschmann3.png" /></td><td>Eduard Roschmann</td></tr><tr><td style="text-align: center;"><img src="legend/reproject_escaperoutes_2_ErichPriebke4.png" /></td><td>Erich Priebke</td></tr><tr><td style="text-align: center;"><img src="legend/reproject_escaperoutes_2_FranzStangl5.png" /></td><td>Franz Stangl</td></tr><tr><td style="text-align: center;"><img src="legend/reproject_escaperoutes_2_GerhardBohne6.png" /></td><td>Gerhard Bohne</td></tr><tr><td style="text-align: center;"><img src="legend/reproject_escaperoutes_2_HansUlrichRudel7.png" /></td><td>Hans Ulrich Rudel</td></tr><tr><td style="text-align: center;"><img src="legend/reproject_escaperoutes_2_JosefMengele8.png" /></td><td>Josef Mengele</td></tr><tr><td style="text-align: center;"><img src="legend/reproject_escaperoutes_2_JosefSchwammberger9.png" /></td><td>Josef Schwammberger</td></tr><tr><td style="text-align: center;"><img src="legend/reproject_escaperoutes_2_KlausBarbie10.png" /></td><td>Klaus Barbie</td></tr><tr><td style="text-align: center;"><img src="legend/reproject_escaperoutes_2_KrunoslavDraganovi11.png" /></td><td>Krunoslav Draganovi?</td></tr><tr><td style="text-align: center;"><img src="legend/reproject_escaperoutes_2_12.png" /></td><td></td></tr></table>': layer_reproject_escaperoutes_2,"Esri Light Gray": layer_EsriLightGray_1,"Google Terrain Hybrid": layer_GoogleTerrainHybrid_0,},{collapsed:false}).addTo(map);
+        L.control.layers(baseMaps,{'Escape_routes- reduced_data<br /><table><tr><td style="text-align: center;"><img src="legend/Escape_routesreduced_data_3_AdolfEichmann0.png" /></td><td>Adolf Eichmann</td></tr><tr><td style="text-align: center;"><img src="legend/Escape_routesreduced_data_3_AloisHudal1.png" /></td><td>Alois Hudal</td></tr><tr><td style="text-align: center;"><img src="legend/Escape_routesreduced_data_3_AntePavelic2.png" /></td><td>Ante Pavelic</td></tr><tr><td style="text-align: center;"><img src="legend/Escape_routesreduced_data_3_AribertHeim3.png" /></td><td>Aribert Heim</td></tr><tr><td style="text-align: center;"><img src="legend/Escape_routesreduced_data_3_BrankoBenzon4.png" /></td><td>Branko Benzon</td></tr><tr><td style="text-align: center;"><img src="legend/Escape_routesreduced_data_3_CarlVaernet5.png" /></td><td>Carl Vaernet</td></tr><tr><td style="text-align: center;"><img src="legend/Escape_routesreduced_data_3_CarlosFuldner6.png" /></td><td>Carlos Fuldner</td></tr><tr><td style="text-align: center;"><img src="legend/Escape_routesreduced_data_3_EduardRoschmann7.png" /></td><td>Eduard Roschmann</td></tr><tr><td style="text-align: center;"><img src="legend/Escape_routesreduced_data_3_ErichPriebke8.png" /></td><td>Erich Priebke</td></tr><tr><td style="text-align: center;"><img src="legend/Escape_routesreduced_data_3_FranzStangl9.png" /></td><td>Franz Stangl</td></tr><tr><td style="text-align: center;"><img src="legend/Escape_routesreduced_data_3_GerhardBohne10.png" /></td><td>Gerhard Bohne</td></tr><tr><td style="text-align: center;"><img src="legend/Escape_routesreduced_data_3_GinoMontideValsassina11.png" /></td><td>Gino Monti de Valsassina</td></tr><tr><td style="text-align: center;"><img src="legend/Escape_routesreduced_data_3_HansUlrichRudel12.png" /></td><td>Hans Ulrich Rudel</td></tr><tr><td style="text-align: center;"><img src="legend/Escape_routesreduced_data_3_JosefMengele13.png" /></td><td>Josef Mengele</td></tr><tr><td style="text-align: center;"><img src="legend/Escape_routesreduced_data_3_JosefSchwammberger14.png" /></td><td>Josef Schwammberger</td></tr><tr><td style="text-align: center;"><img src="legend/Escape_routesreduced_data_3_KlausBarbie15.png" /></td><td>Klaus Barbie</td></tr><tr><td style="text-align: center;"><img src="legend/Escape_routesreduced_data_3_KrunoslavDraganović16.png" /></td><td>Krunoslav Draganović</td></tr><tr><td style="text-align: center;"><img src="legend/Escape_routesreduced_data_3_PierreDaye17.png" /></td><td>Pierre Daye</td></tr><tr><td style="text-align: center;"><img src="legend/Escape_routesreduced_data_3_WaltherRauff18.png" /></td><td>Walther Rauff</td></tr><tr><td style="text-align: center;"><img src="legend/Escape_routesreduced_data_3_19.png" /></td><td></td></tr></table>': layer_Escape_routesreduced_data_3,'paths_final<br /><table><tr><td style="text-align: center;"><img src="legend/paths_final_2_AdolfEichmann0.png" /></td><td>Adolf Eichmann</td></tr><tr><td style="text-align: center;"><img src="legend/paths_final_2_AloisHudal1.png" /></td><td>Alois Hudal</td></tr><tr><td style="text-align: center;"><img src="legend/paths_final_2_AntePavelic2.png" /></td><td>Ante Pavelic</td></tr><tr><td style="text-align: center;"><img src="legend/paths_final_2_AribertHeim3.png" /></td><td>Aribert Heim</td></tr><tr><td style="text-align: center;"><img src="legend/paths_final_2_BrankoBenzon4.png" /></td><td>Branko Benzon</td></tr><tr><td style="text-align: center;"><img src="legend/paths_final_2_CarlVaernet5.png" /></td><td>Carl Vaernet</td></tr><tr><td style="text-align: center;"><img src="legend/paths_final_2_CarlosFuldner6.png" /></td><td>Carlos Fuldner</td></tr><tr><td style="text-align: center;"><img src="legend/paths_final_2_EduardRoschmann7.png" /></td><td>Eduard Roschmann</td></tr><tr><td style="text-align: center;"><img src="legend/paths_final_2_ErichPriebke8.png" /></td><td>Erich Priebke</td></tr><tr><td style="text-align: center;"><img src="legend/paths_final_2_FranzStangl9.png" /></td><td>Franz Stangl</td></tr><tr><td style="text-align: center;"><img src="legend/paths_final_2_GerhardBohne10.png" /></td><td>Gerhard Bohne</td></tr><tr><td style="text-align: center;"><img src="legend/paths_final_2_GinoMontideValsassina11.png" /></td><td>Gino Monti de Valsassina</td></tr><tr><td style="text-align: center;"><img src="legend/paths_final_2_HansUlrichRudel12.png" /></td><td>Hans Ulrich Rudel</td></tr><tr><td style="text-align: center;"><img src="legend/paths_final_2_JosefMengele13.png" /></td><td>Josef Mengele</td></tr><tr><td style="text-align: center;"><img src="legend/paths_final_2_JosefSchwammberger14.png" /></td><td>Josef Schwammberger</td></tr><tr><td style="text-align: center;"><img src="legend/paths_final_2_KlausBarbie15.png" /></td><td>Klaus Barbie</td></tr><tr><td style="text-align: center;"><img src="legend/paths_final_2_PierreDaye16.png" /></td><td>Pierre Daye</td></tr><tr><td style="text-align: center;"><img src="legend/paths_final_2_WaltherRauff17.png" /></td><td>Walther Rauff</td></tr><tr><td style="text-align: center;"><img src="legend/paths_final_2_18.png" /></td><td></td></tr></table>': layer_paths_final_2,"Google Satellite": layer_GoogleSatellite_1,'<img src="legend/world_1945_0.png" /> world_1945': layer_world_1945_0,},{collapsed:false}).addTo(map);
         setBounds();
         var i = 0;
-        layer_reproject_escaperoutes_2.eachLayer(function(layer) {
+        layer_world_1945_0.eachLayer(function(layer) {
             var context = {
                 feature: layer.feature,
                 variables: {}
             };
-            layer.bindTooltip((layer.feature.properties['Name'] !== null?String('<div style="color: #323232; font-size: 9pt; font-family: \'Liberation Sans\', sans-serif;">' + layer.feature.properties['Name']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_reproject_escaperoutes_2'});
+            layer.bindTooltip((layer.feature.properties['NAME'] !== null?String('<div style="color: #323232; font-size: 6pt; font-family: \'Liberation Sans\', sans-serif;">' + layer.feature.properties['NAME']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_world_1945_0'});
             labels.push(layer);
             totalMarkers += 1;
               layer.added = true;
@@ -550,34 +799,27 @@
               i++;
         });
         var i = 0;
-        layer_paths_3857_3.eachLayer(function(layer) {
+        layer_paths_final_2.eachLayer(function(layer) {
             var context = {
                 feature: layer.feature,
                 variables: {}
             };
-            layer.bindTooltip((layer.feature.properties['criminal'] !== null?String('<div style="color: #323232; font-size: 10pt; font-weight: bold; font-style: italic; font-family: \'Liberation Sans\', sans-serif;">' + layer.feature.properties['criminal']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_paths_3857_3'});
+            layer.bindTooltip((layer.feature.properties['criminal'] !== null?String('<div style="color: #323232; font-size: 10pt; font-style: italic; font-family: \'Liberation Sans\', sans-serif;">' + layer.feature.properties['criminal']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_paths_final_2'});
             labels.push(layer);
             totalMarkers += 1;
               layer.added = true;
               addLabel(layer, i);
               i++;
         });
-        map.addControl(new L.Control.Search({
-            layer: layer_reproject_escaperoutes_2,
-            initial: false,
-            hideMarkerOnCollapse: true,
-            propertyName: 'criminal'}));
-        document.getElementsByClassName('search-button')[0].className +=
-         ' fa fa-binoculars';
-        resetLabels([layer_reproject_escaperoutes_2,layer_paths_3857_3]);
+        resetLabels([layer_world_1945_0,layer_paths_final_2]);
         map.on("zoomend", function(){
-            resetLabels([layer_reproject_escaperoutes_2,layer_paths_3857_3]);
+            resetLabels([layer_world_1945_0,layer_paths_final_2]);
         });
         map.on("layeradd", function(){
-            resetLabels([layer_reproject_escaperoutes_2,layer_paths_3857_3]);
+            resetLabels([layer_world_1945_0,layer_paths_final_2]);
         });
         map.on("layerremove", function(){
-            resetLabels([layer_reproject_escaperoutes_2,layer_paths_3857_3]);
+            resetLabels([layer_world_1945_0,layer_paths_final_2]);
         });
         </script>
     </body>
