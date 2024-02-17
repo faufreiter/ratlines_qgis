@@ -1,0 +1,1 @@
+var json_ginomontidevalsassina_path_23 = {"type":"FeatureCollection","name":"ginomontidevalsassina_path_23","crs":{"type":"name","properties":{"name":"urn:ogc:def:crs:OGC:1.3:CRS84"}},"features":[{"type":"Feature","properties":{"begin":"1","end":"3"},"geometry":{"type":"MultiLineString","coordinates":[[[9.189982,45.464204],[-3.70379,40.416775],[-58.415651,-34.559018]]]}}]}

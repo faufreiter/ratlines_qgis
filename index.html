@@ -12,13 +12,13 @@
         <style>
         #map {
             width: 1299px;
-            height: 596px;
+            height: 734px;
         }
         </style>
         <title></title>
     </head>
     <body>
-        <center><h1 style="font-size: 24px; font-family: 'Arial', sans-serif;">Ratlines: Tracing Nazi Escapes to America</h1></center>
+        <center><h1 style="font-size: 20px; font-family: 'Arial', sans-serif;">Ratlines: Tracing Nazi Escapes to America</h1></center>
         <div id="map">
         </div>
         <script src="js/qgis2web_expressions.js"></script>
@@ -31,13 +31,49 @@
         <script src="js/labelgun.min.js"></script>
         <script src="js/labels.js"></script>
         <script src="js/leaflet-measure.js"></script>
-        <script src="data/world_1945_0.js"></script>
-        <script src="data/paths_final_2.js"></script>
-        <script src="data/Escape_routesreduced_data_3.js"></script>
+        <script src="data/Borders1945_0.js"></script>
+        <script src="data/AloisHudal_2.js"></script>
+        <script src="data/CarlosFuldner_3.js"></script>
+        <script src="data/carlosfuldner_path_4.js"></script>
+        <script src="data/KrunoslavDraganovic_5.js"></script>
+        <script src="data/CarlVaernet_6.js"></script>
+        <script src="data/carlvaernet_path_7.js"></script>
+        <script src="data/FranzStangl_8.js"></script>
+        <script src="data/franzstangl_path_9.js"></script>
+        <script src="data/JosefSchwammberger_10.js"></script>
+        <script src="data/josefschwammberger_path_11.js"></script>
+        <script src="data/HansUlrichRudel_12.js"></script>
+        <script src="data/hansulrichrudel_path_13.js"></script>
+        <script src="data/EduardRoschmann_14.js"></script>
+        <script src="data/eduardroschmann_path_15.js"></script>
+        <script src="data/WaltherRauff_16.js"></script>
+        <script src="data/waltherrauff_path_17.js"></script>
+        <script src="data/ErichPriebke_18.js"></script>
+        <script src="data/erichpriebke_path_19.js"></script>
+        <script src="data/AntePavelic_20.js"></script>
+        <script src="data/antepavelic_path_21.js"></script>
+        <script src="data/GinoMontideValsassina_22.js"></script>
+        <script src="data/ginomontidevalsassina_path_23.js"></script>
+        <script src="data/JosefMengele_24.js"></script>
+        <script src="data/josefmengele_path_25.js"></script>
+        <script src="data/JacquesdeMahieu_26.js"></script>
+        <script src="data/jacquesdemahieu_path_27.js"></script>
+        <script src="data/AribertHeim_28.js"></script>
+        <script src="data/aribertheim_path_29.js"></script>
+        <script src="data/AdolfEichmann_30.js"></script>
+        <script src="data/adolfeichmann_path_31.js"></script>
+        <script src="data/PierreDaye_32.js"></script>
+        <script src="data/pierredaye_path_33.js"></script>
+        <script src="data/GerhardBohne_34.js"></script>
+        <script src="data/gerhardbohne_path_35.js"></script>
+        <script src="data/BrankoBenzon_36.js"></script>
+        <script src="data/brankobenzon_path_37.js"></script>
+        <script src="data/KlausBarbie_38.js"></script>
+        <script src="data/klausbarbie_path_39.js"></script>
         <script>
         var map = L.map('map', {
             zoomControl:true, maxZoom:28, minZoom:1
-        }).fitBounds([[26.340560087658822,-66.8476852912331],[63.901761942367095,56.402234828334215]]);
+        }).fitBounds([[-57.73913353575658,-165.5282743930939],[61.933485570150246,101.17647078368871]]);
         var hash = new L.Hash(map);
         map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
         var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
@@ -56,7 +92,7 @@
         var bounds_group = new L.featureGroup([]);
         function setBounds() {
         }
-        function pop_world_1945_0(feature, layer) {
+        function pop_Borders1945_0(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
                         <td colspan="2">' + (feature.properties['NAME'] !== null ? autolinker.link(feature.properties['NAME'].toLocaleString()) : '') + '</td>\
@@ -77,9 +113,9 @@
             layer.bindPopup(popupContent, {maxHeight: 400});
         }
 
-        function style_world_1945_0_0() {
+        function style_Borders1945_0_0() {
             return {
-                pane: 'pane_world_1945_0',
+                pane: 'pane_Borders1945_0',
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
@@ -89,23 +125,23 @@
                 fill: true,
                 fillOpacity: 1,
                 fillColor: 'rgba(255,255,255,1.0)',
-                interactive: true,
+                interactive: false,
             }
         }
-        map.createPane('pane_world_1945_0');
-        map.getPane('pane_world_1945_0').style.zIndex = 400;
-        map.getPane('pane_world_1945_0').style['mix-blend-mode'] = 'normal';
-        var layer_world_1945_0 = new L.geoJson(json_world_1945_0, {
+        map.createPane('pane_Borders1945_0');
+        map.getPane('pane_Borders1945_0').style.zIndex = 400;
+        map.getPane('pane_Borders1945_0').style['mix-blend-mode'] = 'normal';
+        var layer_Borders1945_0 = new L.geoJson(json_Borders1945_0, {
             attribution: '',
-            interactive: true,
-            dataVar: 'json_world_1945_0',
-            layerName: 'layer_world_1945_0',
-            pane: 'pane_world_1945_0',
-            onEachFeature: pop_world_1945_0,
-            style: style_world_1945_0_0,
+            interactive: false,
+            dataVar: 'json_Borders1945_0',
+            layerName: 'layer_Borders1945_0',
+            pane: 'pane_Borders1945_0',
+            onEachFeature: pop_Borders1945_0,
+            style: style_Borders1945_0_0,
         });
-        bounds_group.addLayer(layer_world_1945_0);
-        map.addLayer(layer_world_1945_0);
+        bounds_group.addLayer(layer_Borders1945_0);
+        map.addLayer(layer_Borders1945_0);
         map.createPane('pane_GoogleSatellite_1');
         map.getPane('pane_GoogleSatellite_1').style.zIndex = 401;
         var layer_GoogleSatellite_1 = L.tileLayer('https://mt1.google.com/vt/lyrs=s&x={x}&y={y}&z={z}', {
@@ -117,291 +153,12 @@
         });
         layer_GoogleSatellite_1;
         map.addLayer(layer_GoogleSatellite_1);
-        function pop_paths_final_2(feature, layer) {
+        function pop_AloisHudal_2(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
-                        <th scope="row">criminal</th>\
-                        <td>' + (feature.properties['criminal'] !== null ? autolinker.link(feature.properties['criminal'].toLocaleString()) : '') + '</td>\
+                        <th scope="row">fid</th>\
+                        <td>' + (feature.properties['fid'] !== null ? autolinker.link(feature.properties['fid'].toLocaleString()) : '') + '</td>\
                     </tr>\
-                    <tr>\
-                        <th scope="row">begin</th>\
-                        <td>' + (feature.properties['begin'] !== null ? autolinker.link(feature.properties['begin'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">end</th>\
-                        <td>' + (feature.properties['end'] !== null ? autolinker.link(feature.properties['end'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                </table>';
-            layer.bindPopup(popupContent, {maxHeight: 400});
-        }
-
-        function style_paths_final_2_0(feature) {
-            switch(String(feature.properties['criminal'])) {
-                case 'Adolf Eichmann':
-                    return {
-                pane: 'pane_paths_final_2',
-                opacity: 1,
-                color: 'rgba(68,1,84,1.0)',
-                dashArray: '',
-                lineCap: 'round',
-                lineJoin: 'round',
-                weight: 3.0,
-                fillOpacity: 0,
-                interactive: true,
-            }
-                    break;
-                case 'Alois Hudal':
-                    return {
-                pane: 'pane_paths_final_2',
-                opacity: 1,
-                color: 'rgba(72,22,104,1.0)',
-                dashArray: '',
-                lineCap: 'round',
-                lineJoin: 'round',
-                weight: 3.0,
-                fillOpacity: 0,
-                interactive: true,
-            }
-                    break;
-                case 'Ante Pavelic':
-                    return {
-                pane: 'pane_paths_final_2',
-                opacity: 1,
-                color: 'rgba(71,40,120,1.0)',
-                dashArray: '',
-                lineCap: 'round',
-                lineJoin: 'round',
-                weight: 3.0,
-                fillOpacity: 0,
-                interactive: true,
-            }
-                    break;
-                case 'Aribert Heim':
-                    return {
-                pane: 'pane_paths_final_2',
-                opacity: 1,
-                color: 'rgba(68,58,130,1.0)',
-                dashArray: '',
-                lineCap: 'round',
-                lineJoin: 'round',
-                weight: 3.0,
-                fillOpacity: 0,
-                interactive: true,
-            }
-                    break;
-                case 'Branko Benzon':
-                    return {
-                pane: 'pane_paths_final_2',
-                opacity: 1,
-                color: 'rgba(62,74,137,1.0)',
-                dashArray: '',
-                lineCap: 'round',
-                lineJoin: 'round',
-                weight: 3.0,
-                fillOpacity: 0,
-                interactive: true,
-            }
-                    break;
-                case 'Carl Vaernet':
-                    return {
-                pane: 'pane_paths_final_2',
-                opacity: 1,
-                color: 'rgba(56,90,140,1.0)',
-                dashArray: '',
-                lineCap: 'round',
-                lineJoin: 'round',
-                weight: 3.0,
-                fillOpacity: 0,
-                interactive: true,
-            }
-                    break;
-                case 'Carlos Fuldner':
-                    return {
-                pane: 'pane_paths_final_2',
-                opacity: 1,
-                color: 'rgba(49,104,142,1.0)',
-                dashArray: '',
-                lineCap: 'round',
-                lineJoin: 'round',
-                weight: 3.0,
-                fillOpacity: 0,
-                interactive: true,
-            }
-                    break;
-                case 'Eduard Roschmann':
-                    return {
-                pane: 'pane_paths_final_2',
-                opacity: 1,
-                color: 'rgba(42,117,142,1.0)',
-                dashArray: '',
-                lineCap: 'round',
-                lineJoin: 'round',
-                weight: 3.0,
-                fillOpacity: 0,
-                interactive: true,
-            }
-                    break;
-                case 'Erich Priebke':
-                    return {
-                pane: 'pane_paths_final_2',
-                opacity: 1,
-                color: 'rgba(38,131,142,1.0)',
-                dashArray: '',
-                lineCap: 'round',
-                lineJoin: 'round',
-                weight: 3.0,
-                fillOpacity: 0,
-                interactive: true,
-            }
-                    break;
-                case 'Franz Stangl':
-                    return {
-                pane: 'pane_paths_final_2',
-                opacity: 1,
-                color: 'rgba(33,144,141,1.0)',
-                dashArray: '',
-                lineCap: 'round',
-                lineJoin: 'round',
-                weight: 3.0,
-                fillOpacity: 0,
-                interactive: true,
-            }
-                    break;
-                case 'Gerhard Bohne':
-                    return {
-                pane: 'pane_paths_final_2',
-                opacity: 1,
-                color: 'rgba(30,158,137,1.0)',
-                dashArray: '',
-                lineCap: 'round',
-                lineJoin: 'round',
-                weight: 3.0,
-                fillOpacity: 0,
-                interactive: true,
-            }
-                    break;
-                case 'Gino Monti de Valsassina':
-                    return {
-                pane: 'pane_paths_final_2',
-                opacity: 1,
-                color: 'rgba(37,171,130,1.0)',
-                dashArray: '',
-                lineCap: 'round',
-                lineJoin: 'round',
-                weight: 3.0,
-                fillOpacity: 0,
-                interactive: true,
-            }
-                    break;
-                case 'Hans Ulrich Rudel':
-                    return {
-                pane: 'pane_paths_final_2',
-                opacity: 1,
-                color: 'rgba(53,183,121,1.0)',
-                dashArray: '',
-                lineCap: 'round',
-                lineJoin: 'round',
-                weight: 3.0,
-                fillOpacity: 0,
-                interactive: true,
-            }
-                    break;
-                case 'Josef Mengele':
-                    return {
-                pane: 'pane_paths_final_2',
-                opacity: 1,
-                color: 'rgba(78,195,107,1.0)',
-                dashArray: '',
-                lineCap: 'round',
-                lineJoin: 'round',
-                weight: 3.0,
-                fillOpacity: 0,
-                interactive: true,
-            }
-                    break;
-                case 'Josef Schwammberger':
-                    return {
-                pane: 'pane_paths_final_2',
-                opacity: 1,
-                color: 'rgba(108,206,89,1.0)',
-                dashArray: '',
-                lineCap: 'round',
-                lineJoin: 'round',
-                weight: 3.0,
-                fillOpacity: 0,
-                interactive: true,
-            }
-                    break;
-                case 'Klaus Barbie':
-                    return {
-                pane: 'pane_paths_final_2',
-                opacity: 1,
-                color: 'rgba(143,215,68,1.0)',
-                dashArray: '',
-                lineCap: 'round',
-                lineJoin: 'round',
-                weight: 3.0,
-                fillOpacity: 0,
-                interactive: true,
-            }
-                    break;
-                case 'Pierre Daye':
-                    return {
-                pane: 'pane_paths_final_2',
-                opacity: 1,
-                color: 'rgba(180,222,44,1.0)',
-                dashArray: '',
-                lineCap: 'round',
-                lineJoin: 'round',
-                weight: 3.0,
-                fillOpacity: 0,
-                interactive: true,
-            }
-                    break;
-                case 'Walther Rauff':
-                    return {
-                pane: 'pane_paths_final_2',
-                opacity: 1,
-                color: 'rgba(218,226,25,1.0)',
-                dashArray: '',
-                lineCap: 'round',
-                lineJoin: 'round',
-                weight: 3.0,
-                fillOpacity: 0,
-                interactive: true,
-            }
-                    break;
-                default:
-                    return {
-                pane: 'pane_paths_final_2',
-                opacity: 1,
-                color: 'rgba(253,231,37,1.0)',
-                dashArray: '',
-                lineCap: 'round',
-                lineJoin: 'round',
-                weight: 3.0,
-                fillOpacity: 0,
-                interactive: true,
-            }
-                    break;
-            }
-        }
-        map.createPane('pane_paths_final_2');
-        map.getPane('pane_paths_final_2').style.zIndex = 402;
-        map.getPane('pane_paths_final_2').style['mix-blend-mode'] = 'normal';
-        var layer_paths_final_2 = new L.geoJson(json_paths_final_2, {
-            attribution: '',
-            interactive: true,
-            dataVar: 'json_paths_final_2',
-            layerName: 'layer_paths_final_2',
-            pane: 'pane_paths_final_2',
-            onEachFeature: pop_paths_final_2,
-            style: style_paths_final_2_0,
-        });
-        bounds_group.addLayer(layer_paths_final_2);
-        map.addLayer(layer_paths_final_2);
-        function pop_Escape_routesreduced_data_3(feature, layer) {
-            var popupContent = '<table>\
                     <tr>\
                         <th scope="row">Name</th>\
                         <td>' + (feature.properties['Name'] !== null ? autolinker.link(feature.properties['Name'].toLocaleString()) : '') + '</td>\
@@ -409,6 +166,10 @@
                     <tr>\
                         <th scope="row">Beschreibung</th>\
                         <td>' + (feature.properties['Beschreibung'] !== null ? autolinker.link(feature.properties['Beschreibung'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">criminalID</th>\
+                        <td>' + (feature.properties['criminalID'] !== null ? autolinker.link(feature.properties['criminalID'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <th scope="row">criminal</th>\
@@ -434,16 +195,18 @@
                         <th scope="row">notes</th>\
                         <td>' + (feature.properties['notes'] !== null ? autolinker.link(feature.properties['notes'].toLocaleString()) : '') + '</td>\
                     </tr>\
+                    <tr>\
+                        <th scope="row">uniqueID</th>\
+                        <td>' + (feature.properties['uniqueID'] !== null ? autolinker.link(feature.properties['uniqueID'].toLocaleString()) : '') + '</td>\
+                    </tr>\
                 </table>';
             layer.bindPopup(popupContent, {maxHeight: 400});
         }
 
-        function style_Escape_routesreduced_data_3_0(feature) {
-            switch(String(feature.properties['criminal'])) {
-                case 'Adolf Eichmann':
-                    return {
-                pane: 'pane_Escape_routesreduced_data_3',
-                radius: 4.0,
+        function style_AloisHudal_2_0() {
+            return {
+                pane: 'pane_AloisHudal_2',
+                radius: 6.000000000000002,
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
@@ -452,374 +215,2391 @@
                 weight: 1,
                 fill: true,
                 fillOpacity: 1,
-                fillColor: 'rgba(68,1,84,1.0)',
+                fillColor: 'rgba(0,136,255,1.0)',
                 interactive: true,
-            }
-                    break;
-                case 'Alois Hudal':
-                    return {
-                pane: 'pane_Escape_routesreduced_data_3',
-                radius: 4.0,
-                opacity: 1,
-                color: 'rgba(35,35,35,1.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1,
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(72,21,103,1.0)',
-                interactive: true,
-            }
-                    break;
-                case 'Ante Pavelic':
-                    return {
-                pane: 'pane_Escape_routesreduced_data_3',
-                radius: 4.0,
-                opacity: 1,
-                color: 'rgba(35,35,35,1.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1,
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(72,38,119,1.0)',
-                interactive: true,
-            }
-                    break;
-                case 'Aribert Heim':
-                    return {
-                pane: 'pane_Escape_routesreduced_data_3',
-                radius: 4.0,
-                opacity: 1,
-                color: 'rgba(35,35,35,1.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1,
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(69,55,129,1.0)',
-                interactive: true,
-            }
-                    break;
-                case 'Branko Benzon':
-                    return {
-                pane: 'pane_Escape_routesreduced_data_3',
-                radius: 4.0,
-                opacity: 1,
-                color: 'rgba(35,35,35,1.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1,
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(64,70,136,1.0)',
-                interactive: true,
-            }
-                    break;
-                case 'Carl Vaernet':
-                    return {
-                pane: 'pane_Escape_routesreduced_data_3',
-                radius: 4.0,
-                opacity: 1,
-                color: 'rgba(35,35,35,1.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1,
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(57,86,139,1.0)',
-                interactive: true,
-            }
-                    break;
-                case 'Carlos Fuldner':
-                    return {
-                pane: 'pane_Escape_routesreduced_data_3',
-                radius: 4.0,
-                opacity: 1,
-                color: 'rgba(35,35,35,1.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1,
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(51,100,141,1.0)',
-                interactive: true,
-            }
-                    break;
-                case 'Eduard Roschmann':
-                    return {
-                pane: 'pane_Escape_routesreduced_data_3',
-                radius: 4.0,
-                opacity: 1,
-                color: 'rgba(35,35,35,1.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1,
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(44,112,142,1.0)',
-                interactive: true,
-            }
-                    break;
-                case 'Erich Priebke':
-                    return {
-                pane: 'pane_Escape_routesreduced_data_3',
-                radius: 4.0,
-                opacity: 1,
-                color: 'rgba(35,35,35,1.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1,
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(40,125,142,1.0)',
-                interactive: true,
-            }
-                    break;
-                case 'Franz Stangl':
-                    return {
-                pane: 'pane_Escape_routesreduced_data_3',
-                radius: 4.0,
-                opacity: 1,
-                color: 'rgba(35,35,35,1.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1,
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(35,138,142,1.0)',
-                interactive: true,
-            }
-                    break;
-                case 'Gerhard Bohne':
-                    return {
-                pane: 'pane_Escape_routesreduced_data_3',
-                radius: 4.0,
-                opacity: 1,
-                color: 'rgba(35,35,35,1.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1,
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(31,150,139,1.0)',
-                interactive: true,
-            }
-                    break;
-                case 'Gino Monti de Valsassina':
-                    return {
-                pane: 'pane_Escape_routesreduced_data_3',
-                radius: 4.0,
-                opacity: 1,
-                color: 'rgba(35,35,35,1.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1,
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(32,163,134,1.0)',
-                interactive: true,
-            }
-                    break;
-                case 'Hans Ulrich Rudel':
-                    return {
-                pane: 'pane_Escape_routesreduced_data_3',
-                radius: 4.0,
-                opacity: 1,
-                color: 'rgba(35,35,35,1.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1,
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(41,175,127,1.0)',
-                interactive: true,
-            }
-                    break;
-                case 'Josef Mengele':
-                    return {
-                pane: 'pane_Escape_routesreduced_data_3',
-                radius: 4.0,
-                opacity: 1,
-                color: 'rgba(35,35,35,1.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1,
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(60,187,117,1.0)',
-                interactive: true,
-            }
-                    break;
-                case 'Josef Schwammberger':
-                    return {
-                pane: 'pane_Escape_routesreduced_data_3',
-                radius: 4.0,
-                opacity: 1,
-                color: 'rgba(35,35,35,1.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1,
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(86,198,103,1.0)',
-                interactive: true,
-            }
-                    break;
-                case 'Klaus Barbie':
-                    return {
-                pane: 'pane_Escape_routesreduced_data_3',
-                radius: 4.0,
-                opacity: 1,
-                color: 'rgba(35,35,35,1.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1,
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(115,208,85,1.0)',
-                interactive: true,
-            }
-                    break;
-                case 'Krunoslav Draganović':
-                    return {
-                pane: 'pane_Escape_routesreduced_data_3',
-                radius: 4.0,
-                opacity: 1,
-                color: 'rgba(35,35,35,1.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1,
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(148,216,64,1.0)',
-                interactive: true,
-            }
-                    break;
-                case 'Pierre Daye':
-                    return {
-                pane: 'pane_Escape_routesreduced_data_3',
-                radius: 4.0,
-                opacity: 1,
-                color: 'rgba(35,35,35,1.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1,
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(184,222,41,1.0)',
-                interactive: true,
-            }
-                    break;
-                case 'Walther Rauff':
-                    return {
-                pane: 'pane_Escape_routesreduced_data_3',
-                radius: 4.0,
-                opacity: 1,
-                color: 'rgba(35,35,35,1.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1,
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(220,227,25,1.0)',
-                interactive: true,
-            }
-                    break;
-                default:
-                    return {
-                pane: 'pane_Escape_routesreduced_data_3',
-                radius: 4.0,
-                opacity: 1,
-                color: 'rgba(35,35,35,1.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1,
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(253,231,37,1.0)',
-                interactive: true,
-            }
-                    break;
             }
         }
-        map.createPane('pane_Escape_routesreduced_data_3');
-        map.getPane('pane_Escape_routesreduced_data_3').style.zIndex = 403;
-        map.getPane('pane_Escape_routesreduced_data_3').style['mix-blend-mode'] = 'normal';
-        var layer_Escape_routesreduced_data_3 = new L.geoJson(json_Escape_routesreduced_data_3, {
+        map.createPane('pane_AloisHudal_2');
+        map.getPane('pane_AloisHudal_2').style.zIndex = 402;
+        map.getPane('pane_AloisHudal_2').style['mix-blend-mode'] = 'normal';
+        var layer_AloisHudal_2 = new L.geoJson(json_AloisHudal_2, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_Escape_routesreduced_data_3',
-            layerName: 'layer_Escape_routesreduced_data_3',
-            pane: 'pane_Escape_routesreduced_data_3',
-            onEachFeature: pop_Escape_routesreduced_data_3,
+            dataVar: 'json_AloisHudal_2',
+            layerName: 'layer_AloisHudal_2',
+            pane: 'pane_AloisHudal_2',
+            onEachFeature: pop_AloisHudal_2,
             pointToLayer: function (feature, latlng) {
                 var context = {
                     feature: feature,
                     variables: {}
                 };
-                return L.circleMarker(latlng, style_Escape_routesreduced_data_3_0(feature));
+                return L.circleMarker(latlng, style_AloisHudal_2_0(feature));
             },
         });
-        bounds_group.addLayer(layer_Escape_routesreduced_data_3);
-        map.addLayer(layer_Escape_routesreduced_data_3);
+        bounds_group.addLayer(layer_AloisHudal_2);
+        map.addLayer(layer_AloisHudal_2);
+        function pop_CarlosFuldner_3(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <th scope="row">fid</th>\
+                        <td>' + (feature.properties['fid'] !== null ? autolinker.link(feature.properties['fid'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Name</th>\
+                        <td>' + (feature.properties['Name'] !== null ? autolinker.link(feature.properties['Name'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Beschreibung</th>\
+                        <td>' + (feature.properties['Beschreibung'] !== null ? autolinker.link(feature.properties['Beschreibung'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">criminalID</th>\
+                        <td>' + (feature.properties['criminalID'] !== null ? autolinker.link(feature.properties['criminalID'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">criminal</th>\
+                        <td>' + (feature.properties['criminal'] !== null ? autolinker.link(feature.properties['criminal'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">order</th>\
+                        <td>' + (feature.properties['order'] !== null ? autolinker.link(feature.properties['order'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">start_year</th>\
+                        <td>' + (feature.properties['start_year'] !== null ? autolinker.link(feature.properties['start_year'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">end_year</th>\
+                        <td>' + (feature.properties['end_year'] !== null ? autolinker.link(feature.properties['end_year'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">activity</th>\
+                        <td>' + (feature.properties['activity'] !== null ? autolinker.link(feature.properties['activity'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">notes</th>\
+                        <td>' + (feature.properties['notes'] !== null ? autolinker.link(feature.properties['notes'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">uniqueID</th>\
+                        <td>' + (feature.properties['uniqueID'] !== null ? autolinker.link(feature.properties['uniqueID'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_CarlosFuldner_3_0() {
+            return {
+                pane: 'pane_CarlosFuldner_3',
+                radius: 6.000000000000002,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(31,120,180,1.0)',
+                interactive: true,
+            }
+        }
+        map.createPane('pane_CarlosFuldner_3');
+        map.getPane('pane_CarlosFuldner_3').style.zIndex = 403;
+        map.getPane('pane_CarlosFuldner_3').style['mix-blend-mode'] = 'normal';
+        var layer_CarlosFuldner_3 = new L.geoJson(json_CarlosFuldner_3, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_CarlosFuldner_3',
+            layerName: 'layer_CarlosFuldner_3',
+            pane: 'pane_CarlosFuldner_3',
+            onEachFeature: pop_CarlosFuldner_3,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.circleMarker(latlng, style_CarlosFuldner_3_0(feature));
+            },
+        });
+        bounds_group.addLayer(layer_CarlosFuldner_3);
+        map.addLayer(layer_CarlosFuldner_3);
+        function pop_carlosfuldner_path_4(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['begin'] !== null ? autolinker.link(feature.properties['begin'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['end'] !== null ? autolinker.link(feature.properties['end'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_carlosfuldner_path_4_0() {
+            return {
+                pane: 'pane_carlosfuldner_path_4',
+                opacity: 1,
+                color: 'rgba(31,120,180,1.0)',
+                dashArray: '',
+                lineCap: 'round',
+                lineJoin: 'round',
+                weight: 3.0,
+                fillOpacity: 0,
+                interactive: false,
+            }
+        }
+        map.createPane('pane_carlosfuldner_path_4');
+        map.getPane('pane_carlosfuldner_path_4').style.zIndex = 404;
+        map.getPane('pane_carlosfuldner_path_4').style['mix-blend-mode'] = 'normal';
+        var layer_carlosfuldner_path_4 = new L.geoJson(json_carlosfuldner_path_4, {
+            attribution: '',
+            interactive: false,
+            dataVar: 'json_carlosfuldner_path_4',
+            layerName: 'layer_carlosfuldner_path_4',
+            pane: 'pane_carlosfuldner_path_4',
+            onEachFeature: pop_carlosfuldner_path_4,
+            style: style_carlosfuldner_path_4_0,
+        });
+        bounds_group.addLayer(layer_carlosfuldner_path_4);
+        map.addLayer(layer_carlosfuldner_path_4);
+        function pop_KrunoslavDraganovic_5(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <th scope="row">fid</th>\
+                        <td>' + (feature.properties['fid'] !== null ? autolinker.link(feature.properties['fid'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Name</th>\
+                        <td>' + (feature.properties['Name'] !== null ? autolinker.link(feature.properties['Name'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Beschreibung</th>\
+                        <td>' + (feature.properties['Beschreibung'] !== null ? autolinker.link(feature.properties['Beschreibung'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">criminalID</th>\
+                        <td>' + (feature.properties['criminalID'] !== null ? autolinker.link(feature.properties['criminalID'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">criminal</th>\
+                        <td>' + (feature.properties['criminal'] !== null ? autolinker.link(feature.properties['criminal'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">order</th>\
+                        <td>' + (feature.properties['order'] !== null ? autolinker.link(feature.properties['order'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">start_year</th>\
+                        <td>' + (feature.properties['start_year'] !== null ? autolinker.link(feature.properties['start_year'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">end_year</th>\
+                        <td>' + (feature.properties['end_year'] !== null ? autolinker.link(feature.properties['end_year'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">activity</th>\
+                        <td>' + (feature.properties['activity'] !== null ? autolinker.link(feature.properties['activity'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">notes</th>\
+                        <td>' + (feature.properties['notes'] !== null ? autolinker.link(feature.properties['notes'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">uniqueID</th>\
+                        <td>' + (feature.properties['uniqueID'] !== null ? autolinker.link(feature.properties['uniqueID'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_KrunoslavDraganovic_5_0() {
+            return {
+                pane: 'pane_KrunoslavDraganovic_5',
+                radius: 6.000000000000002,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(166,206,227,1.0)',
+                interactive: true,
+            }
+        }
+        map.createPane('pane_KrunoslavDraganovic_5');
+        map.getPane('pane_KrunoslavDraganovic_5').style.zIndex = 405;
+        map.getPane('pane_KrunoslavDraganovic_5').style['mix-blend-mode'] = 'normal';
+        var layer_KrunoslavDraganovic_5 = new L.geoJson(json_KrunoslavDraganovic_5, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_KrunoslavDraganovic_5',
+            layerName: 'layer_KrunoslavDraganovic_5',
+            pane: 'pane_KrunoslavDraganovic_5',
+            onEachFeature: pop_KrunoslavDraganovic_5,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.circleMarker(latlng, style_KrunoslavDraganovic_5_0(feature));
+            },
+        });
+        bounds_group.addLayer(layer_KrunoslavDraganovic_5);
+        map.addLayer(layer_KrunoslavDraganovic_5);
+        function pop_CarlVaernet_6(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <th scope="row">fid</th>\
+                        <td>' + (feature.properties['fid'] !== null ? autolinker.link(feature.properties['fid'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Name</th>\
+                        <td>' + (feature.properties['Name'] !== null ? autolinker.link(feature.properties['Name'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Beschreibung</th>\
+                        <td>' + (feature.properties['Beschreibung'] !== null ? autolinker.link(feature.properties['Beschreibung'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">criminalID</th>\
+                        <td>' + (feature.properties['criminalID'] !== null ? autolinker.link(feature.properties['criminalID'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">criminal</th>\
+                        <td>' + (feature.properties['criminal'] !== null ? autolinker.link(feature.properties['criminal'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">order</th>\
+                        <td>' + (feature.properties['order'] !== null ? autolinker.link(feature.properties['order'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">start_year</th>\
+                        <td>' + (feature.properties['start_year'] !== null ? autolinker.link(feature.properties['start_year'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">end_year</th>\
+                        <td>' + (feature.properties['end_year'] !== null ? autolinker.link(feature.properties['end_year'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">activity</th>\
+                        <td>' + (feature.properties['activity'] !== null ? autolinker.link(feature.properties['activity'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">notes</th>\
+                        <td>' + (feature.properties['notes'] !== null ? autolinker.link(feature.properties['notes'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">uniqueID</th>\
+                        <td>' + (feature.properties['uniqueID'] !== null ? autolinker.link(feature.properties['uniqueID'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_CarlVaernet_6_0() {
+            return {
+                pane: 'pane_CarlVaernet_6',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(133,182,111,1.0)',
+                interactive: true,
+            }
+        }
+        map.createPane('pane_CarlVaernet_6');
+        map.getPane('pane_CarlVaernet_6').style.zIndex = 406;
+        map.getPane('pane_CarlVaernet_6').style['mix-blend-mode'] = 'normal';
+        var layer_CarlVaernet_6 = new L.geoJson(json_CarlVaernet_6, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_CarlVaernet_6',
+            layerName: 'layer_CarlVaernet_6',
+            pane: 'pane_CarlVaernet_6',
+            onEachFeature: pop_CarlVaernet_6,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.circleMarker(latlng, style_CarlVaernet_6_0(feature));
+            },
+        });
+        bounds_group.addLayer(layer_CarlVaernet_6);
+        map.addLayer(layer_CarlVaernet_6);
+        function pop_carlvaernet_path_7(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['begin'] !== null ? autolinker.link(feature.properties['begin'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['end'] !== null ? autolinker.link(feature.properties['end'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_carlvaernet_path_7_0() {
+            return {
+                pane: 'pane_carlvaernet_path_7',
+                opacity: 1,
+                color: 'rgba(133,182,111,1.0)',
+                dashArray: '',
+                lineCap: 'round',
+                lineJoin: 'round',
+                weight: 3.0,
+                fillOpacity: 0,
+                interactive: false,
+            }
+        }
+        map.createPane('pane_carlvaernet_path_7');
+        map.getPane('pane_carlvaernet_path_7').style.zIndex = 407;
+        map.getPane('pane_carlvaernet_path_7').style['mix-blend-mode'] = 'normal';
+        var layer_carlvaernet_path_7 = new L.geoJson(json_carlvaernet_path_7, {
+            attribution: '',
+            interactive: false,
+            dataVar: 'json_carlvaernet_path_7',
+            layerName: 'layer_carlvaernet_path_7',
+            pane: 'pane_carlvaernet_path_7',
+            onEachFeature: pop_carlvaernet_path_7,
+            style: style_carlvaernet_path_7_0,
+        });
+        bounds_group.addLayer(layer_carlvaernet_path_7);
+        map.addLayer(layer_carlvaernet_path_7);
+        function pop_FranzStangl_8(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <th scope="row">fid</th>\
+                        <td>' + (feature.properties['fid'] !== null ? autolinker.link(feature.properties['fid'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Name</th>\
+                        <td>' + (feature.properties['Name'] !== null ? autolinker.link(feature.properties['Name'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Beschreibung</th>\
+                        <td>' + (feature.properties['Beschreibung'] !== null ? autolinker.link(feature.properties['Beschreibung'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">criminalID</th>\
+                        <td>' + (feature.properties['criminalID'] !== null ? autolinker.link(feature.properties['criminalID'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">criminal</th>\
+                        <td>' + (feature.properties['criminal'] !== null ? autolinker.link(feature.properties['criminal'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">order</th>\
+                        <td>' + (feature.properties['order'] !== null ? autolinker.link(feature.properties['order'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">start_year</th>\
+                        <td>' + (feature.properties['start_year'] !== null ? autolinker.link(feature.properties['start_year'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">end_year</th>\
+                        <td>' + (feature.properties['end_year'] !== null ? autolinker.link(feature.properties['end_year'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">activity</th>\
+                        <td>' + (feature.properties['activity'] !== null ? autolinker.link(feature.properties['activity'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">notes</th>\
+                        <td>' + (feature.properties['notes'] !== null ? autolinker.link(feature.properties['notes'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">uniqueID</th>\
+                        <td>' + (feature.properties['uniqueID'] !== null ? autolinker.link(feature.properties['uniqueID'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_FranzStangl_8_0() {
+            return {
+                pane: 'pane_FranzStangl_8',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(125,139,143,1.0)',
+                interactive: true,
+            }
+        }
+        map.createPane('pane_FranzStangl_8');
+        map.getPane('pane_FranzStangl_8').style.zIndex = 408;
+        map.getPane('pane_FranzStangl_8').style['mix-blend-mode'] = 'normal';
+        var layer_FranzStangl_8 = new L.geoJson(json_FranzStangl_8, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_FranzStangl_8',
+            layerName: 'layer_FranzStangl_8',
+            pane: 'pane_FranzStangl_8',
+            onEachFeature: pop_FranzStangl_8,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.circleMarker(latlng, style_FranzStangl_8_0(feature));
+            },
+        });
+        bounds_group.addLayer(layer_FranzStangl_8);
+        map.addLayer(layer_FranzStangl_8);
+        function pop_franzstangl_path_9(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['begin'] !== null ? autolinker.link(feature.properties['begin'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['end'] !== null ? autolinker.link(feature.properties['end'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_franzstangl_path_9_0() {
+            return {
+                pane: 'pane_franzstangl_path_9',
+                opacity: 1,
+                color: 'rgba(125,139,143,1.0)',
+                dashArray: '',
+                lineCap: 'round',
+                lineJoin: 'round',
+                weight: 3.0,
+                fillOpacity: 0,
+                interactive: false,
+            }
+        }
+        map.createPane('pane_franzstangl_path_9');
+        map.getPane('pane_franzstangl_path_9').style.zIndex = 409;
+        map.getPane('pane_franzstangl_path_9').style['mix-blend-mode'] = 'normal';
+        var layer_franzstangl_path_9 = new L.geoJson(json_franzstangl_path_9, {
+            attribution: '',
+            interactive: false,
+            dataVar: 'json_franzstangl_path_9',
+            layerName: 'layer_franzstangl_path_9',
+            pane: 'pane_franzstangl_path_9',
+            onEachFeature: pop_franzstangl_path_9,
+            style: style_franzstangl_path_9_0,
+        });
+        bounds_group.addLayer(layer_franzstangl_path_9);
+        map.addLayer(layer_franzstangl_path_9);
+        function pop_JosefSchwammberger_10(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <th scope="row">fid</th>\
+                        <td>' + (feature.properties['fid'] !== null ? autolinker.link(feature.properties['fid'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Name</th>\
+                        <td>' + (feature.properties['Name'] !== null ? autolinker.link(feature.properties['Name'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Beschreibung</th>\
+                        <td>' + (feature.properties['Beschreibung'] !== null ? autolinker.link(feature.properties['Beschreibung'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">criminalID</th>\
+                        <td>' + (feature.properties['criminalID'] !== null ? autolinker.link(feature.properties['criminalID'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">criminal</th>\
+                        <td>' + (feature.properties['criminal'] !== null ? autolinker.link(feature.properties['criminal'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">order</th>\
+                        <td>' + (feature.properties['order'] !== null ? autolinker.link(feature.properties['order'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">start_year</th>\
+                        <td>' + (feature.properties['start_year'] !== null ? autolinker.link(feature.properties['start_year'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">end_year</th>\
+                        <td>' + (feature.properties['end_year'] !== null ? autolinker.link(feature.properties['end_year'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">activity</th>\
+                        <td>' + (feature.properties['activity'] !== null ? autolinker.link(feature.properties['activity'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">notes</th>\
+                        <td>' + (feature.properties['notes'] !== null ? autolinker.link(feature.properties['notes'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">uniqueID</th>\
+                        <td>' + (feature.properties['uniqueID'] !== null ? autolinker.link(feature.properties['uniqueID'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_JosefSchwammberger_10_0() {
+            return {
+                pane: 'pane_JosefSchwammberger_10',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(145,82,45,1.0)',
+                interactive: true,
+            }
+        }
+        map.createPane('pane_JosefSchwammberger_10');
+        map.getPane('pane_JosefSchwammberger_10').style.zIndex = 410;
+        map.getPane('pane_JosefSchwammberger_10').style['mix-blend-mode'] = 'normal';
+        var layer_JosefSchwammberger_10 = new L.geoJson(json_JosefSchwammberger_10, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_JosefSchwammberger_10',
+            layerName: 'layer_JosefSchwammberger_10',
+            pane: 'pane_JosefSchwammberger_10',
+            onEachFeature: pop_JosefSchwammberger_10,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.circleMarker(latlng, style_JosefSchwammberger_10_0(feature));
+            },
+        });
+        bounds_group.addLayer(layer_JosefSchwammberger_10);
+        map.addLayer(layer_JosefSchwammberger_10);
+        function pop_josefschwammberger_path_11(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['begin'] !== null ? autolinker.link(feature.properties['begin'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['end'] !== null ? autolinker.link(feature.properties['end'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_josefschwammberger_path_11_0() {
+            return {
+                pane: 'pane_josefschwammberger_path_11',
+                opacity: 1,
+                color: 'rgba(145,82,45,1.0)',
+                dashArray: '',
+                lineCap: 'round',
+                lineJoin: 'round',
+                weight: 3.0,
+                fillOpacity: 0,
+                interactive: false,
+            }
+        }
+        map.createPane('pane_josefschwammberger_path_11');
+        map.getPane('pane_josefschwammberger_path_11').style.zIndex = 411;
+        map.getPane('pane_josefschwammberger_path_11').style['mix-blend-mode'] = 'normal';
+        var layer_josefschwammberger_path_11 = new L.geoJson(json_josefschwammberger_path_11, {
+            attribution: '',
+            interactive: false,
+            dataVar: 'json_josefschwammberger_path_11',
+            layerName: 'layer_josefschwammberger_path_11',
+            pane: 'pane_josefschwammberger_path_11',
+            onEachFeature: pop_josefschwammberger_path_11,
+            style: style_josefschwammberger_path_11_0,
+        });
+        bounds_group.addLayer(layer_josefschwammberger_path_11);
+        map.addLayer(layer_josefschwammberger_path_11);
+        function pop_HansUlrichRudel_12(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <th scope="row">fid</th>\
+                        <td>' + (feature.properties['fid'] !== null ? autolinker.link(feature.properties['fid'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Name</th>\
+                        <td>' + (feature.properties['Name'] !== null ? autolinker.link(feature.properties['Name'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Beschreibung</th>\
+                        <td>' + (feature.properties['Beschreibung'] !== null ? autolinker.link(feature.properties['Beschreibung'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">criminalID</th>\
+                        <td>' + (feature.properties['criminalID'] !== null ? autolinker.link(feature.properties['criminalID'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">criminal</th>\
+                        <td>' + (feature.properties['criminal'] !== null ? autolinker.link(feature.properties['criminal'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">order</th>\
+                        <td>' + (feature.properties['order'] !== null ? autolinker.link(feature.properties['order'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">start_year</th>\
+                        <td>' + (feature.properties['start_year'] !== null ? autolinker.link(feature.properties['start_year'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">end_year</th>\
+                        <td>' + (feature.properties['end_year'] !== null ? autolinker.link(feature.properties['end_year'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">activity</th>\
+                        <td>' + (feature.properties['activity'] !== null ? autolinker.link(feature.properties['activity'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">notes</th>\
+                        <td>' + (feature.properties['notes'] !== null ? autolinker.link(feature.properties['notes'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">uniqueID</th>\
+                        <td>' + (feature.properties['uniqueID'] !== null ? autolinker.link(feature.properties['uniqueID'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_HansUlrichRudel_12_0() {
+            return {
+                pane: 'pane_HansUlrichRudel_12',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(190,178,151,1.0)',
+                interactive: true,
+            }
+        }
+        map.createPane('pane_HansUlrichRudel_12');
+        map.getPane('pane_HansUlrichRudel_12').style.zIndex = 412;
+        map.getPane('pane_HansUlrichRudel_12').style['mix-blend-mode'] = 'normal';
+        var layer_HansUlrichRudel_12 = new L.geoJson(json_HansUlrichRudel_12, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_HansUlrichRudel_12',
+            layerName: 'layer_HansUlrichRudel_12',
+            pane: 'pane_HansUlrichRudel_12',
+            onEachFeature: pop_HansUlrichRudel_12,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.circleMarker(latlng, style_HansUlrichRudel_12_0(feature));
+            },
+        });
+        bounds_group.addLayer(layer_HansUlrichRudel_12);
+        map.addLayer(layer_HansUlrichRudel_12);
+        function pop_hansulrichrudel_path_13(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['begin'] !== null ? autolinker.link(feature.properties['begin'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['end'] !== null ? autolinker.link(feature.properties['end'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_hansulrichrudel_path_13_0() {
+            return {
+                pane: 'pane_hansulrichrudel_path_13',
+                opacity: 1,
+                color: 'rgba(190,178,151,1.0)',
+                dashArray: '',
+                lineCap: 'round',
+                lineJoin: 'round',
+                weight: 3.0,
+                fillOpacity: 0,
+                interactive: false,
+            }
+        }
+        map.createPane('pane_hansulrichrudel_path_13');
+        map.getPane('pane_hansulrichrudel_path_13').style.zIndex = 413;
+        map.getPane('pane_hansulrichrudel_path_13').style['mix-blend-mode'] = 'normal';
+        var layer_hansulrichrudel_path_13 = new L.geoJson(json_hansulrichrudel_path_13, {
+            attribution: '',
+            interactive: false,
+            dataVar: 'json_hansulrichrudel_path_13',
+            layerName: 'layer_hansulrichrudel_path_13',
+            pane: 'pane_hansulrichrudel_path_13',
+            onEachFeature: pop_hansulrichrudel_path_13,
+            style: style_hansulrichrudel_path_13_0,
+        });
+        bounds_group.addLayer(layer_hansulrichrudel_path_13);
+        map.addLayer(layer_hansulrichrudel_path_13);
+        function pop_EduardRoschmann_14(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <th scope="row">fid</th>\
+                        <td>' + (feature.properties['fid'] !== null ? autolinker.link(feature.properties['fid'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Name</th>\
+                        <td>' + (feature.properties['Name'] !== null ? autolinker.link(feature.properties['Name'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Beschreibung</th>\
+                        <td>' + (feature.properties['Beschreibung'] !== null ? autolinker.link(feature.properties['Beschreibung'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">criminalID</th>\
+                        <td>' + (feature.properties['criminalID'] !== null ? autolinker.link(feature.properties['criminalID'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">criminal</th>\
+                        <td>' + (feature.properties['criminal'] !== null ? autolinker.link(feature.properties['criminal'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">order</th>\
+                        <td>' + (feature.properties['order'] !== null ? autolinker.link(feature.properties['order'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">start_year</th>\
+                        <td>' + (feature.properties['start_year'] !== null ? autolinker.link(feature.properties['start_year'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">end_year</th>\
+                        <td>' + (feature.properties['end_year'] !== null ? autolinker.link(feature.properties['end_year'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">activity</th>\
+                        <td>' + (feature.properties['activity'] !== null ? autolinker.link(feature.properties['activity'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">notes</th>\
+                        <td>' + (feature.properties['notes'] !== null ? autolinker.link(feature.properties['notes'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">uniqueID</th>\
+                        <td>' + (feature.properties['uniqueID'] !== null ? autolinker.link(feature.properties['uniqueID'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_EduardRoschmann_14_0() {
+            return {
+                pane: 'pane_EduardRoschmann_14',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(196,60,57,1.0)',
+                interactive: true,
+            }
+        }
+        map.createPane('pane_EduardRoschmann_14');
+        map.getPane('pane_EduardRoschmann_14').style.zIndex = 414;
+        map.getPane('pane_EduardRoschmann_14').style['mix-blend-mode'] = 'normal';
+        var layer_EduardRoschmann_14 = new L.geoJson(json_EduardRoschmann_14, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_EduardRoschmann_14',
+            layerName: 'layer_EduardRoschmann_14',
+            pane: 'pane_EduardRoschmann_14',
+            onEachFeature: pop_EduardRoschmann_14,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.circleMarker(latlng, style_EduardRoschmann_14_0(feature));
+            },
+        });
+        bounds_group.addLayer(layer_EduardRoschmann_14);
+        map.addLayer(layer_EduardRoschmann_14);
+        function pop_eduardroschmann_path_15(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['begin'] !== null ? autolinker.link(feature.properties['begin'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['end'] !== null ? autolinker.link(feature.properties['end'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_eduardroschmann_path_15_0() {
+            return {
+                pane: 'pane_eduardroschmann_path_15',
+                opacity: 1,
+                color: 'rgba(196,60,57,1.0)',
+                dashArray: '',
+                lineCap: 'round',
+                lineJoin: 'round',
+                weight: 3.0,
+                fillOpacity: 0,
+                interactive: false,
+            }
+        }
+        map.createPane('pane_eduardroschmann_path_15');
+        map.getPane('pane_eduardroschmann_path_15').style.zIndex = 415;
+        map.getPane('pane_eduardroschmann_path_15').style['mix-blend-mode'] = 'normal';
+        var layer_eduardroschmann_path_15 = new L.geoJson(json_eduardroschmann_path_15, {
+            attribution: '',
+            interactive: false,
+            dataVar: 'json_eduardroschmann_path_15',
+            layerName: 'layer_eduardroschmann_path_15',
+            pane: 'pane_eduardroschmann_path_15',
+            onEachFeature: pop_eduardroschmann_path_15,
+            style: style_eduardroschmann_path_15_0,
+        });
+        bounds_group.addLayer(layer_eduardroschmann_path_15);
+        map.addLayer(layer_eduardroschmann_path_15);
+        function pop_WaltherRauff_16(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <th scope="row">fid</th>\
+                        <td>' + (feature.properties['fid'] !== null ? autolinker.link(feature.properties['fid'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Name</th>\
+                        <td>' + (feature.properties['Name'] !== null ? autolinker.link(feature.properties['Name'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Beschreibung</th>\
+                        <td>' + (feature.properties['Beschreibung'] !== null ? autolinker.link(feature.properties['Beschreibung'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">criminalID</th>\
+                        <td>' + (feature.properties['criminalID'] !== null ? autolinker.link(feature.properties['criminalID'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">criminal</th>\
+                        <td>' + (feature.properties['criminal'] !== null ? autolinker.link(feature.properties['criminal'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">order</th>\
+                        <td>' + (feature.properties['order'] !== null ? autolinker.link(feature.properties['order'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">start_year</th>\
+                        <td>' + (feature.properties['start_year'] !== null ? autolinker.link(feature.properties['start_year'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">end_year</th>\
+                        <td>' + (feature.properties['end_year'] !== null ? autolinker.link(feature.properties['end_year'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">activity</th>\
+                        <td>' + (feature.properties['activity'] !== null ? autolinker.link(feature.properties['activity'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">notes</th>\
+                        <td>' + (feature.properties['notes'] !== null ? autolinker.link(feature.properties['notes'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">uniqueID</th>\
+                        <td>' + (feature.properties['uniqueID'] !== null ? autolinker.link(feature.properties['uniqueID'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_WaltherRauff_16_0() {
+            return {
+                pane: 'pane_WaltherRauff_16',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(229,182,54,1.0)',
+                interactive: true,
+            }
+        }
+        map.createPane('pane_WaltherRauff_16');
+        map.getPane('pane_WaltherRauff_16').style.zIndex = 416;
+        map.getPane('pane_WaltherRauff_16').style['mix-blend-mode'] = 'normal';
+        var layer_WaltherRauff_16 = new L.geoJson(json_WaltherRauff_16, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_WaltherRauff_16',
+            layerName: 'layer_WaltherRauff_16',
+            pane: 'pane_WaltherRauff_16',
+            onEachFeature: pop_WaltherRauff_16,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.circleMarker(latlng, style_WaltherRauff_16_0(feature));
+            },
+        });
+        bounds_group.addLayer(layer_WaltherRauff_16);
+        map.addLayer(layer_WaltherRauff_16);
+        function pop_waltherrauff_path_17(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['begin'] !== null ? autolinker.link(feature.properties['begin'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['end'] !== null ? autolinker.link(feature.properties['end'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_waltherrauff_path_17_0() {
+            return {
+                pane: 'pane_waltherrauff_path_17',
+                opacity: 1,
+                color: 'rgba(229,182,54,1.0)',
+                dashArray: '',
+                lineCap: 'round',
+                lineJoin: 'round',
+                weight: 3.0,
+                fillOpacity: 0,
+                interactive: false,
+            }
+        }
+        map.createPane('pane_waltherrauff_path_17');
+        map.getPane('pane_waltherrauff_path_17').style.zIndex = 417;
+        map.getPane('pane_waltherrauff_path_17').style['mix-blend-mode'] = 'normal';
+        var layer_waltherrauff_path_17 = new L.geoJson(json_waltherrauff_path_17, {
+            attribution: '',
+            interactive: false,
+            dataVar: 'json_waltherrauff_path_17',
+            layerName: 'layer_waltherrauff_path_17',
+            pane: 'pane_waltherrauff_path_17',
+            onEachFeature: pop_waltherrauff_path_17,
+            style: style_waltherrauff_path_17_0,
+        });
+        bounds_group.addLayer(layer_waltherrauff_path_17);
+        map.addLayer(layer_waltherrauff_path_17);
+        function pop_ErichPriebke_18(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <th scope="row">fid</th>\
+                        <td>' + (feature.properties['fid'] !== null ? autolinker.link(feature.properties['fid'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Name</th>\
+                        <td>' + (feature.properties['Name'] !== null ? autolinker.link(feature.properties['Name'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Beschreibung</th>\
+                        <td>' + (feature.properties['Beschreibung'] !== null ? autolinker.link(feature.properties['Beschreibung'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">criminalID</th>\
+                        <td>' + (feature.properties['criminalID'] !== null ? autolinker.link(feature.properties['criminalID'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">criminal</th>\
+                        <td>' + (feature.properties['criminal'] !== null ? autolinker.link(feature.properties['criminal'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">order</th>\
+                        <td>' + (feature.properties['order'] !== null ? autolinker.link(feature.properties['order'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">start_year</th>\
+                        <td>' + (feature.properties['start_year'] !== null ? autolinker.link(feature.properties['start_year'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">end_year</th>\
+                        <td>' + (feature.properties['end_year'] !== null ? autolinker.link(feature.properties['end_year'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">activity</th>\
+                        <td>' + (feature.properties['activity'] !== null ? autolinker.link(feature.properties['activity'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">notes</th>\
+                        <td>' + (feature.properties['notes'] !== null ? autolinker.link(feature.properties['notes'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">uniqueID</th>\
+                        <td>' + (feature.properties['uniqueID'] !== null ? autolinker.link(feature.properties['uniqueID'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_ErichPriebke_18_0() {
+            return {
+                pane: 'pane_ErichPriebke_18',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(225,89,137,1.0)',
+                interactive: true,
+            }
+        }
+        map.createPane('pane_ErichPriebke_18');
+        map.getPane('pane_ErichPriebke_18').style.zIndex = 418;
+        map.getPane('pane_ErichPriebke_18').style['mix-blend-mode'] = 'normal';
+        var layer_ErichPriebke_18 = new L.geoJson(json_ErichPriebke_18, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_ErichPriebke_18',
+            layerName: 'layer_ErichPriebke_18',
+            pane: 'pane_ErichPriebke_18',
+            onEachFeature: pop_ErichPriebke_18,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.circleMarker(latlng, style_ErichPriebke_18_0(feature));
+            },
+        });
+        bounds_group.addLayer(layer_ErichPriebke_18);
+        map.addLayer(layer_ErichPriebke_18);
+        function pop_erichpriebke_path_19(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['begin'] !== null ? autolinker.link(feature.properties['begin'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['end'] !== null ? autolinker.link(feature.properties['end'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_erichpriebke_path_19_0() {
+            return {
+                pane: 'pane_erichpriebke_path_19',
+                opacity: 1,
+                color: 'rgba(225,89,137,1.0)',
+                dashArray: '',
+                lineCap: 'round',
+                lineJoin: 'round',
+                weight: 3.0,
+                fillOpacity: 0,
+                interactive: false,
+            }
+        }
+        map.createPane('pane_erichpriebke_path_19');
+        map.getPane('pane_erichpriebke_path_19').style.zIndex = 419;
+        map.getPane('pane_erichpriebke_path_19').style['mix-blend-mode'] = 'normal';
+        var layer_erichpriebke_path_19 = new L.geoJson(json_erichpriebke_path_19, {
+            attribution: '',
+            interactive: false,
+            dataVar: 'json_erichpriebke_path_19',
+            layerName: 'layer_erichpriebke_path_19',
+            pane: 'pane_erichpriebke_path_19',
+            onEachFeature: pop_erichpriebke_path_19,
+            style: style_erichpriebke_path_19_0,
+        });
+        bounds_group.addLayer(layer_erichpriebke_path_19);
+        map.addLayer(layer_erichpriebke_path_19);
+        function pop_AntePavelic_20(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <th scope="row">fid</th>\
+                        <td>' + (feature.properties['fid'] !== null ? autolinker.link(feature.properties['fid'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Name</th>\
+                        <td>' + (feature.properties['Name'] !== null ? autolinker.link(feature.properties['Name'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Beschreibung</th>\
+                        <td>' + (feature.properties['Beschreibung'] !== null ? autolinker.link(feature.properties['Beschreibung'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">criminalID</th>\
+                        <td>' + (feature.properties['criminalID'] !== null ? autolinker.link(feature.properties['criminalID'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">criminal</th>\
+                        <td>' + (feature.properties['criminal'] !== null ? autolinker.link(feature.properties['criminal'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">order</th>\
+                        <td>' + (feature.properties['order'] !== null ? autolinker.link(feature.properties['order'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">start_year</th>\
+                        <td>' + (feature.properties['start_year'] !== null ? autolinker.link(feature.properties['start_year'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">end_year</th>\
+                        <td>' + (feature.properties['end_year'] !== null ? autolinker.link(feature.properties['end_year'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">activity</th>\
+                        <td>' + (feature.properties['activity'] !== null ? autolinker.link(feature.properties['activity'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">notes</th>\
+                        <td>' + (feature.properties['notes'] !== null ? autolinker.link(feature.properties['notes'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">uniqueID</th>\
+                        <td>' + (feature.properties['uniqueID'] !== null ? autolinker.link(feature.properties['uniqueID'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_AntePavelic_20_0() {
+            return {
+                pane: 'pane_AntePavelic_20',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(190,207,80,1.0)',
+                interactive: true,
+            }
+        }
+        map.createPane('pane_AntePavelic_20');
+        map.getPane('pane_AntePavelic_20').style.zIndex = 420;
+        map.getPane('pane_AntePavelic_20').style['mix-blend-mode'] = 'normal';
+        var layer_AntePavelic_20 = new L.geoJson(json_AntePavelic_20, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_AntePavelic_20',
+            layerName: 'layer_AntePavelic_20',
+            pane: 'pane_AntePavelic_20',
+            onEachFeature: pop_AntePavelic_20,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.circleMarker(latlng, style_AntePavelic_20_0(feature));
+            },
+        });
+        bounds_group.addLayer(layer_AntePavelic_20);
+        map.addLayer(layer_AntePavelic_20);
+        function pop_antepavelic_path_21(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['begin'] !== null ? autolinker.link(feature.properties['begin'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['end'] !== null ? autolinker.link(feature.properties['end'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_antepavelic_path_21_0() {
+            return {
+                pane: 'pane_antepavelic_path_21',
+                opacity: 1,
+                color: 'rgba(190,207,80,1.0)',
+                dashArray: '',
+                lineCap: 'round',
+                lineJoin: 'round',
+                weight: 3.0,
+                fillOpacity: 0,
+                interactive: false,
+            }
+        }
+        map.createPane('pane_antepavelic_path_21');
+        map.getPane('pane_antepavelic_path_21').style.zIndex = 421;
+        map.getPane('pane_antepavelic_path_21').style['mix-blend-mode'] = 'normal';
+        var layer_antepavelic_path_21 = new L.geoJson(json_antepavelic_path_21, {
+            attribution: '',
+            interactive: false,
+            dataVar: 'json_antepavelic_path_21',
+            layerName: 'layer_antepavelic_path_21',
+            pane: 'pane_antepavelic_path_21',
+            onEachFeature: pop_antepavelic_path_21,
+            style: style_antepavelic_path_21_0,
+        });
+        bounds_group.addLayer(layer_antepavelic_path_21);
+        map.addLayer(layer_antepavelic_path_21);
+        function pop_GinoMontideValsassina_22(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <th scope="row">fid</th>\
+                        <td>' + (feature.properties['fid'] !== null ? autolinker.link(feature.properties['fid'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Name</th>\
+                        <td>' + (feature.properties['Name'] !== null ? autolinker.link(feature.properties['Name'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Beschreibung</th>\
+                        <td>' + (feature.properties['Beschreibung'] !== null ? autolinker.link(feature.properties['Beschreibung'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">criminalID</th>\
+                        <td>' + (feature.properties['criminalID'] !== null ? autolinker.link(feature.properties['criminalID'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">criminal</th>\
+                        <td>' + (feature.properties['criminal'] !== null ? autolinker.link(feature.properties['criminal'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">order</th>\
+                        <td>' + (feature.properties['order'] !== null ? autolinker.link(feature.properties['order'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">start_year</th>\
+                        <td>' + (feature.properties['start_year'] !== null ? autolinker.link(feature.properties['start_year'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">end_year</th>\
+                        <td>' + (feature.properties['end_year'] !== null ? autolinker.link(feature.properties['end_year'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">activity</th>\
+                        <td>' + (feature.properties['activity'] !== null ? autolinker.link(feature.properties['activity'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">notes</th>\
+                        <td>' + (feature.properties['notes'] !== null ? autolinker.link(feature.properties['notes'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">uniqueID</th>\
+                        <td>' + (feature.properties['uniqueID'] !== null ? autolinker.link(feature.properties['uniqueID'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_GinoMontideValsassina_22_0() {
+            return {
+                pane: 'pane_GinoMontideValsassina_22',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(152,125,183,1.0)',
+                interactive: true,
+            }
+        }
+        map.createPane('pane_GinoMontideValsassina_22');
+        map.getPane('pane_GinoMontideValsassina_22').style.zIndex = 422;
+        map.getPane('pane_GinoMontideValsassina_22').style['mix-blend-mode'] = 'normal';
+        var layer_GinoMontideValsassina_22 = new L.geoJson(json_GinoMontideValsassina_22, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_GinoMontideValsassina_22',
+            layerName: 'layer_GinoMontideValsassina_22',
+            pane: 'pane_GinoMontideValsassina_22',
+            onEachFeature: pop_GinoMontideValsassina_22,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.circleMarker(latlng, style_GinoMontideValsassina_22_0(feature));
+            },
+        });
+        bounds_group.addLayer(layer_GinoMontideValsassina_22);
+        map.addLayer(layer_GinoMontideValsassina_22);
+        function pop_ginomontidevalsassina_path_23(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['begin'] !== null ? autolinker.link(feature.properties['begin'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['end'] !== null ? autolinker.link(feature.properties['end'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_ginomontidevalsassina_path_23_0() {
+            return {
+                pane: 'pane_ginomontidevalsassina_path_23',
+                opacity: 1,
+                color: 'rgba(152,125,183,1.0)',
+                dashArray: '',
+                lineCap: 'round',
+                lineJoin: 'round',
+                weight: 3.0,
+                fillOpacity: 0,
+                interactive: false,
+            }
+        }
+        map.createPane('pane_ginomontidevalsassina_path_23');
+        map.getPane('pane_ginomontidevalsassina_path_23').style.zIndex = 423;
+        map.getPane('pane_ginomontidevalsassina_path_23').style['mix-blend-mode'] = 'normal';
+        var layer_ginomontidevalsassina_path_23 = new L.geoJson(json_ginomontidevalsassina_path_23, {
+            attribution: '',
+            interactive: false,
+            dataVar: 'json_ginomontidevalsassina_path_23',
+            layerName: 'layer_ginomontidevalsassina_path_23',
+            pane: 'pane_ginomontidevalsassina_path_23',
+            onEachFeature: pop_ginomontidevalsassina_path_23,
+            style: style_ginomontidevalsassina_path_23_0,
+        });
+        bounds_group.addLayer(layer_ginomontidevalsassina_path_23);
+        map.addLayer(layer_ginomontidevalsassina_path_23);
+        function pop_JosefMengele_24(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <th scope="row">fid</th>\
+                        <td>' + (feature.properties['fid'] !== null ? autolinker.link(feature.properties['fid'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Name</th>\
+                        <td>' + (feature.properties['Name'] !== null ? autolinker.link(feature.properties['Name'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Beschreibung</th>\
+                        <td>' + (feature.properties['Beschreibung'] !== null ? autolinker.link(feature.properties['Beschreibung'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">criminalID</th>\
+                        <td>' + (feature.properties['criminalID'] !== null ? autolinker.link(feature.properties['criminalID'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">criminal</th>\
+                        <td>' + (feature.properties['criminal'] !== null ? autolinker.link(feature.properties['criminal'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">order</th>\
+                        <td>' + (feature.properties['order'] !== null ? autolinker.link(feature.properties['order'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">start_year</th>\
+                        <td>' + (feature.properties['start_year'] !== null ? autolinker.link(feature.properties['start_year'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">end_year</th>\
+                        <td>' + (feature.properties['end_year'] !== null ? autolinker.link(feature.properties['end_year'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">activity</th>\
+                        <td>' + (feature.properties['activity'] !== null ? autolinker.link(feature.properties['activity'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">notes</th>\
+                        <td>' + (feature.properties['notes'] !== null ? autolinker.link(feature.properties['notes'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">uniqueID</th>\
+                        <td>' + (feature.properties['uniqueID'] !== null ? autolinker.link(feature.properties['uniqueID'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_JosefMengele_24_0() {
+            return {
+                pane: 'pane_JosefMengele_24',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(231,113,72,1.0)',
+                interactive: true,
+            }
+        }
+        map.createPane('pane_JosefMengele_24');
+        map.getPane('pane_JosefMengele_24').style.zIndex = 424;
+        map.getPane('pane_JosefMengele_24').style['mix-blend-mode'] = 'normal';
+        var layer_JosefMengele_24 = new L.geoJson(json_JosefMengele_24, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_JosefMengele_24',
+            layerName: 'layer_JosefMengele_24',
+            pane: 'pane_JosefMengele_24',
+            onEachFeature: pop_JosefMengele_24,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.circleMarker(latlng, style_JosefMengele_24_0(feature));
+            },
+        });
+        bounds_group.addLayer(layer_JosefMengele_24);
+        map.addLayer(layer_JosefMengele_24);
+        function pop_josefmengele_path_25(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['begin'] !== null ? autolinker.link(feature.properties['begin'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['end'] !== null ? autolinker.link(feature.properties['end'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_josefmengele_path_25_0() {
+            return {
+                pane: 'pane_josefmengele_path_25',
+                opacity: 1,
+                color: 'rgba(231,113,72,1.0)',
+                dashArray: '',
+                lineCap: 'round',
+                lineJoin: 'round',
+                weight: 3.0,
+                fillOpacity: 0,
+                interactive: false,
+            }
+        }
+        map.createPane('pane_josefmengele_path_25');
+        map.getPane('pane_josefmengele_path_25').style.zIndex = 425;
+        map.getPane('pane_josefmengele_path_25').style['mix-blend-mode'] = 'normal';
+        var layer_josefmengele_path_25 = new L.geoJson(json_josefmengele_path_25, {
+            attribution: '',
+            interactive: false,
+            dataVar: 'json_josefmengele_path_25',
+            layerName: 'layer_josefmengele_path_25',
+            pane: 'pane_josefmengele_path_25',
+            onEachFeature: pop_josefmengele_path_25,
+            style: style_josefmengele_path_25_0,
+        });
+        bounds_group.addLayer(layer_josefmengele_path_25);
+        map.addLayer(layer_josefmengele_path_25);
+        function pop_JacquesdeMahieu_26(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <th scope="row">fid</th>\
+                        <td>' + (feature.properties['fid'] !== null ? autolinker.link(feature.properties['fid'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Name</th>\
+                        <td>' + (feature.properties['Name'] !== null ? autolinker.link(feature.properties['Name'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Beschreibung</th>\
+                        <td>' + (feature.properties['Beschreibung'] !== null ? autolinker.link(feature.properties['Beschreibung'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">criminalID</th>\
+                        <td>' + (feature.properties['criminalID'] !== null ? autolinker.link(feature.properties['criminalID'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">criminal</th>\
+                        <td>' + (feature.properties['criminal'] !== null ? autolinker.link(feature.properties['criminal'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">order</th>\
+                        <td>' + (feature.properties['order'] !== null ? autolinker.link(feature.properties['order'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">start_year</th>\
+                        <td>' + (feature.properties['start_year'] !== null ? autolinker.link(feature.properties['start_year'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">end_year</th>\
+                        <td>' + (feature.properties['end_year'] !== null ? autolinker.link(feature.properties['end_year'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">activity</th>\
+                        <td>' + (feature.properties['activity'] !== null ? autolinker.link(feature.properties['activity'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">notes</th>\
+                        <td>' + (feature.properties['notes'] !== null ? autolinker.link(feature.properties['notes'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">uniqueID</th>\
+                        <td>' + (feature.properties['uniqueID'] !== null ? autolinker.link(feature.properties['uniqueID'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_JacquesdeMahieu_26_0() {
+            return {
+                pane: 'pane_JacquesdeMahieu_26',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(183,72,75,1.0)',
+                interactive: true,
+            }
+        }
+        map.createPane('pane_JacquesdeMahieu_26');
+        map.getPane('pane_JacquesdeMahieu_26').style.zIndex = 426;
+        map.getPane('pane_JacquesdeMahieu_26').style['mix-blend-mode'] = 'normal';
+        var layer_JacquesdeMahieu_26 = new L.geoJson(json_JacquesdeMahieu_26, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_JacquesdeMahieu_26',
+            layerName: 'layer_JacquesdeMahieu_26',
+            pane: 'pane_JacquesdeMahieu_26',
+            onEachFeature: pop_JacquesdeMahieu_26,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.circleMarker(latlng, style_JacquesdeMahieu_26_0(feature));
+            },
+        });
+        bounds_group.addLayer(layer_JacquesdeMahieu_26);
+        map.addLayer(layer_JacquesdeMahieu_26);
+        function pop_jacquesdemahieu_path_27(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['begin'] !== null ? autolinker.link(feature.properties['begin'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['end'] !== null ? autolinker.link(feature.properties['end'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_jacquesdemahieu_path_27_0() {
+            return {
+                pane: 'pane_jacquesdemahieu_path_27',
+                opacity: 1,
+                color: 'rgba(183,72,75,1.0)',
+                dashArray: '',
+                lineCap: 'round',
+                lineJoin: 'round',
+                weight: 3.0,
+                fillOpacity: 0,
+                interactive: false,
+            }
+        }
+        map.createPane('pane_jacquesdemahieu_path_27');
+        map.getPane('pane_jacquesdemahieu_path_27').style.zIndex = 427;
+        map.getPane('pane_jacquesdemahieu_path_27').style['mix-blend-mode'] = 'normal';
+        var layer_jacquesdemahieu_path_27 = new L.geoJson(json_jacquesdemahieu_path_27, {
+            attribution: '',
+            interactive: false,
+            dataVar: 'json_jacquesdemahieu_path_27',
+            layerName: 'layer_jacquesdemahieu_path_27',
+            pane: 'pane_jacquesdemahieu_path_27',
+            onEachFeature: pop_jacquesdemahieu_path_27,
+            style: style_jacquesdemahieu_path_27_0,
+        });
+        bounds_group.addLayer(layer_jacquesdemahieu_path_27);
+        map.addLayer(layer_jacquesdemahieu_path_27);
+        function pop_AribertHeim_28(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <th scope="row">fid</th>\
+                        <td>' + (feature.properties['fid'] !== null ? autolinker.link(feature.properties['fid'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Name</th>\
+                        <td>' + (feature.properties['Name'] !== null ? autolinker.link(feature.properties['Name'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Beschreibung</th>\
+                        <td>' + (feature.properties['Beschreibung'] !== null ? autolinker.link(feature.properties['Beschreibung'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">criminalID</th>\
+                        <td>' + (feature.properties['criminalID'] !== null ? autolinker.link(feature.properties['criminalID'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">criminal</th>\
+                        <td>' + (feature.properties['criminal'] !== null ? autolinker.link(feature.properties['criminal'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">order</th>\
+                        <td>' + (feature.properties['order'] !== null ? autolinker.link(feature.properties['order'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">start_year</th>\
+                        <td>' + (feature.properties['start_year'] !== null ? autolinker.link(feature.properties['start_year'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">end_year</th>\
+                        <td>' + (feature.properties['end_year'] !== null ? autolinker.link(feature.properties['end_year'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">activity</th>\
+                        <td>' + (feature.properties['activity'] !== null ? autolinker.link(feature.properties['activity'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">notes</th>\
+                        <td>' + (feature.properties['notes'] !== null ? autolinker.link(feature.properties['notes'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">uniqueID</th>\
+                        <td>' + (feature.properties['uniqueID'] !== null ? autolinker.link(feature.properties['uniqueID'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_AribertHeim_28_0() {
+            return {
+                pane: 'pane_AribertHeim_28',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(255,158,23,1.0)',
+                interactive: true,
+            }
+        }
+        map.createPane('pane_AribertHeim_28');
+        map.getPane('pane_AribertHeim_28').style.zIndex = 428;
+        map.getPane('pane_AribertHeim_28').style['mix-blend-mode'] = 'normal';
+        var layer_AribertHeim_28 = new L.geoJson(json_AribertHeim_28, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_AribertHeim_28',
+            layerName: 'layer_AribertHeim_28',
+            pane: 'pane_AribertHeim_28',
+            onEachFeature: pop_AribertHeim_28,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.circleMarker(latlng, style_AribertHeim_28_0(feature));
+            },
+        });
+        bounds_group.addLayer(layer_AribertHeim_28);
+        map.addLayer(layer_AribertHeim_28);
+        function pop_aribertheim_path_29(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['begin'] !== null ? autolinker.link(feature.properties['begin'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['end'] !== null ? autolinker.link(feature.properties['end'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_aribertheim_path_29_0() {
+            return {
+                pane: 'pane_aribertheim_path_29',
+                opacity: 1,
+                color: 'rgba(255,158,23,1.0)',
+                dashArray: '',
+                lineCap: 'round',
+                lineJoin: 'round',
+                weight: 3.0,
+                fillOpacity: 0,
+                interactive: false,
+            }
+        }
+        map.createPane('pane_aribertheim_path_29');
+        map.getPane('pane_aribertheim_path_29').style.zIndex = 429;
+        map.getPane('pane_aribertheim_path_29').style['mix-blend-mode'] = 'normal';
+        var layer_aribertheim_path_29 = new L.geoJson(json_aribertheim_path_29, {
+            attribution: '',
+            interactive: false,
+            dataVar: 'json_aribertheim_path_29',
+            layerName: 'layer_aribertheim_path_29',
+            pane: 'pane_aribertheim_path_29',
+            onEachFeature: pop_aribertheim_path_29,
+            style: style_aribertheim_path_29_0,
+        });
+        bounds_group.addLayer(layer_aribertheim_path_29);
+        map.addLayer(layer_aribertheim_path_29);
+        function pop_AdolfEichmann_30(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <th scope="row">fid</th>\
+                        <td>' + (feature.properties['fid'] !== null ? autolinker.link(feature.properties['fid'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Name</th>\
+                        <td>' + (feature.properties['Name'] !== null ? autolinker.link(feature.properties['Name'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Beschreibung</th>\
+                        <td>' + (feature.properties['Beschreibung'] !== null ? autolinker.link(feature.properties['Beschreibung'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">criminalID</th>\
+                        <td>' + (feature.properties['criminalID'] !== null ? autolinker.link(feature.properties['criminalID'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">criminal</th>\
+                        <td>' + (feature.properties['criminal'] !== null ? autolinker.link(feature.properties['criminal'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">order</th>\
+                        <td>' + (feature.properties['order'] !== null ? autolinker.link(feature.properties['order'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">start_year</th>\
+                        <td>' + (feature.properties['start_year'] !== null ? autolinker.link(feature.properties['start_year'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">end_year</th>\
+                        <td>' + (feature.properties['end_year'] !== null ? autolinker.link(feature.properties['end_year'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">activity</th>\
+                        <td>' + (feature.properties['activity'] !== null ? autolinker.link(feature.properties['activity'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">notes</th>\
+                        <td>' + (feature.properties['notes'] !== null ? autolinker.link(feature.properties['notes'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">uniqueID</th>\
+                        <td>' + (feature.properties['uniqueID'] !== null ? autolinker.link(feature.properties['uniqueID'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_AdolfEichmann_30_0() {
+            return {
+                pane: 'pane_AdolfEichmann_30',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(232,113,141,1.0)',
+                interactive: true,
+            }
+        }
+        map.createPane('pane_AdolfEichmann_30');
+        map.getPane('pane_AdolfEichmann_30').style.zIndex = 430;
+        map.getPane('pane_AdolfEichmann_30').style['mix-blend-mode'] = 'normal';
+        var layer_AdolfEichmann_30 = new L.geoJson(json_AdolfEichmann_30, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_AdolfEichmann_30',
+            layerName: 'layer_AdolfEichmann_30',
+            pane: 'pane_AdolfEichmann_30',
+            onEachFeature: pop_AdolfEichmann_30,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.circleMarker(latlng, style_AdolfEichmann_30_0(feature));
+            },
+        });
+        bounds_group.addLayer(layer_AdolfEichmann_30);
+        map.addLayer(layer_AdolfEichmann_30);
+        function pop_adolfeichmann_path_31(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['begin'] !== null ? autolinker.link(feature.properties['begin'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['end'] !== null ? autolinker.link(feature.properties['end'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_adolfeichmann_path_31_0() {
+            return {
+                pane: 'pane_adolfeichmann_path_31',
+                opacity: 1,
+                color: 'rgba(232,113,141,1.0)',
+                dashArray: '',
+                lineCap: 'round',
+                lineJoin: 'round',
+                weight: 3.0,
+                fillOpacity: 0,
+                interactive: false,
+            }
+        }
+        map.createPane('pane_adolfeichmann_path_31');
+        map.getPane('pane_adolfeichmann_path_31').style.zIndex = 431;
+        map.getPane('pane_adolfeichmann_path_31').style['mix-blend-mode'] = 'normal';
+        var layer_adolfeichmann_path_31 = new L.geoJson(json_adolfeichmann_path_31, {
+            attribution: '',
+            interactive: false,
+            dataVar: 'json_adolfeichmann_path_31',
+            layerName: 'layer_adolfeichmann_path_31',
+            pane: 'pane_adolfeichmann_path_31',
+            onEachFeature: pop_adolfeichmann_path_31,
+            style: style_adolfeichmann_path_31_0,
+        });
+        bounds_group.addLayer(layer_adolfeichmann_path_31);
+        map.addLayer(layer_adolfeichmann_path_31);
+        function pop_PierreDaye_32(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <th scope="row">fid</th>\
+                        <td>' + (feature.properties['fid'] !== null ? autolinker.link(feature.properties['fid'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Name</th>\
+                        <td>' + (feature.properties['Name'] !== null ? autolinker.link(feature.properties['Name'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Beschreibung</th>\
+                        <td>' + (feature.properties['Beschreibung'] !== null ? autolinker.link(feature.properties['Beschreibung'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">criminalID</th>\
+                        <td>' + (feature.properties['criminalID'] !== null ? autolinker.link(feature.properties['criminalID'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">criminal</th>\
+                        <td>' + (feature.properties['criminal'] !== null ? autolinker.link(feature.properties['criminal'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">order</th>\
+                        <td>' + (feature.properties['order'] !== null ? autolinker.link(feature.properties['order'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">start_year</th>\
+                        <td>' + (feature.properties['start_year'] !== null ? autolinker.link(feature.properties['start_year'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">end_year</th>\
+                        <td>' + (feature.properties['end_year'] !== null ? autolinker.link(feature.properties['end_year'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">activity</th>\
+                        <td>' + (feature.properties['activity'] !== null ? autolinker.link(feature.properties['activity'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">notes</th>\
+                        <td>' + (feature.properties['notes'] !== null ? autolinker.link(feature.properties['notes'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">uniqueID</th>\
+                        <td>' + (feature.properties['uniqueID'] !== null ? autolinker.link(feature.properties['uniqueID'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_PierreDaye_32_0() {
+            return {
+                pane: 'pane_PierreDaye_32',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(141,90,153,1.0)',
+                interactive: true,
+            }
+        }
+        map.createPane('pane_PierreDaye_32');
+        map.getPane('pane_PierreDaye_32').style.zIndex = 432;
+        map.getPane('pane_PierreDaye_32').style['mix-blend-mode'] = 'normal';
+        var layer_PierreDaye_32 = new L.geoJson(json_PierreDaye_32, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_PierreDaye_32',
+            layerName: 'layer_PierreDaye_32',
+            pane: 'pane_PierreDaye_32',
+            onEachFeature: pop_PierreDaye_32,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.circleMarker(latlng, style_PierreDaye_32_0(feature));
+            },
+        });
+        bounds_group.addLayer(layer_PierreDaye_32);
+        map.addLayer(layer_PierreDaye_32);
+        function pop_pierredaye_path_33(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['begin'] !== null ? autolinker.link(feature.properties['begin'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['end'] !== null ? autolinker.link(feature.properties['end'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_pierredaye_path_33_0() {
+            return {
+                pane: 'pane_pierredaye_path_33',
+                opacity: 1,
+                color: 'rgba(141,90,153,1.0)',
+                dashArray: '',
+                lineCap: 'round',
+                lineJoin: 'round',
+                weight: 3.0,
+                fillOpacity: 0,
+                interactive: false,
+            }
+        }
+        map.createPane('pane_pierredaye_path_33');
+        map.getPane('pane_pierredaye_path_33').style.zIndex = 433;
+        map.getPane('pane_pierredaye_path_33').style['mix-blend-mode'] = 'normal';
+        var layer_pierredaye_path_33 = new L.geoJson(json_pierredaye_path_33, {
+            attribution: '',
+            interactive: false,
+            dataVar: 'json_pierredaye_path_33',
+            layerName: 'layer_pierredaye_path_33',
+            pane: 'pane_pierredaye_path_33',
+            onEachFeature: pop_pierredaye_path_33,
+            style: style_pierredaye_path_33_0,
+        });
+        bounds_group.addLayer(layer_pierredaye_path_33);
+        map.addLayer(layer_pierredaye_path_33);
+        function pop_GerhardBohne_34(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <th scope="row">fid</th>\
+                        <td>' + (feature.properties['fid'] !== null ? autolinker.link(feature.properties['fid'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Name</th>\
+                        <td>' + (feature.properties['Name'] !== null ? autolinker.link(feature.properties['Name'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Beschreibung</th>\
+                        <td>' + (feature.properties['Beschreibung'] !== null ? autolinker.link(feature.properties['Beschreibung'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">criminalID</th>\
+                        <td>' + (feature.properties['criminalID'] !== null ? autolinker.link(feature.properties['criminalID'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">criminal</th>\
+                        <td>' + (feature.properties['criminal'] !== null ? autolinker.link(feature.properties['criminal'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">order</th>\
+                        <td>' + (feature.properties['order'] !== null ? autolinker.link(feature.properties['order'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">start_year</th>\
+                        <td>' + (feature.properties['start_year'] !== null ? autolinker.link(feature.properties['start_year'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">end_year</th>\
+                        <td>' + (feature.properties['end_year'] !== null ? autolinker.link(feature.properties['end_year'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">activity</th>\
+                        <td>' + (feature.properties['activity'] !== null ? autolinker.link(feature.properties['activity'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">notes</th>\
+                        <td>' + (feature.properties['notes'] !== null ? autolinker.link(feature.properties['notes'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">uniqueID</th>\
+                        <td>' + (feature.properties['uniqueID'] !== null ? autolinker.link(feature.properties['uniqueID'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_GerhardBohne_34_0() {
+            return {
+                pane: 'pane_GerhardBohne_34',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(243,166,178,1.0)',
+                interactive: true,
+            }
+        }
+        map.createPane('pane_GerhardBohne_34');
+        map.getPane('pane_GerhardBohne_34').style.zIndex = 434;
+        map.getPane('pane_GerhardBohne_34').style['mix-blend-mode'] = 'normal';
+        var layer_GerhardBohne_34 = new L.geoJson(json_GerhardBohne_34, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_GerhardBohne_34',
+            layerName: 'layer_GerhardBohne_34',
+            pane: 'pane_GerhardBohne_34',
+            onEachFeature: pop_GerhardBohne_34,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.circleMarker(latlng, style_GerhardBohne_34_0(feature));
+            },
+        });
+        bounds_group.addLayer(layer_GerhardBohne_34);
+        map.addLayer(layer_GerhardBohne_34);
+        function pop_gerhardbohne_path_35(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['begin'] !== null ? autolinker.link(feature.properties['begin'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['end'] !== null ? autolinker.link(feature.properties['end'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_gerhardbohne_path_35_0() {
+            return {
+                pane: 'pane_gerhardbohne_path_35',
+                opacity: 1,
+                color: 'rgba(243,166,178,1.0)',
+                dashArray: '',
+                lineCap: 'round',
+                lineJoin: 'round',
+                weight: 3.0,
+                fillOpacity: 0,
+                interactive: false,
+            }
+        }
+        map.createPane('pane_gerhardbohne_path_35');
+        map.getPane('pane_gerhardbohne_path_35').style.zIndex = 435;
+        map.getPane('pane_gerhardbohne_path_35').style['mix-blend-mode'] = 'normal';
+        var layer_gerhardbohne_path_35 = new L.geoJson(json_gerhardbohne_path_35, {
+            attribution: '',
+            interactive: false,
+            dataVar: 'json_gerhardbohne_path_35',
+            layerName: 'layer_gerhardbohne_path_35',
+            pane: 'pane_gerhardbohne_path_35',
+            onEachFeature: pop_gerhardbohne_path_35,
+            style: style_gerhardbohne_path_35_0,
+        });
+        bounds_group.addLayer(layer_gerhardbohne_path_35);
+        map.addLayer(layer_gerhardbohne_path_35);
+        function pop_BrankoBenzon_36(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <th scope="row">fid</th>\
+                        <td>' + (feature.properties['fid'] !== null ? autolinker.link(feature.properties['fid'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Name</th>\
+                        <td>' + (feature.properties['Name'] !== null ? autolinker.link(feature.properties['Name'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Beschreibung</th>\
+                        <td>' + (feature.properties['Beschreibung'] !== null ? autolinker.link(feature.properties['Beschreibung'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">criminalID</th>\
+                        <td>' + (feature.properties['criminalID'] !== null ? autolinker.link(feature.properties['criminalID'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">criminal</th>\
+                        <td>' + (feature.properties['criminal'] !== null ? autolinker.link(feature.properties['criminal'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">order</th>\
+                        <td>' + (feature.properties['order'] !== null ? autolinker.link(feature.properties['order'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">start_year</th>\
+                        <td>' + (feature.properties['start_year'] !== null ? autolinker.link(feature.properties['start_year'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">end_year</th>\
+                        <td>' + (feature.properties['end_year'] !== null ? autolinker.link(feature.properties['end_year'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">activity</th>\
+                        <td>' + (feature.properties['activity'] !== null ? autolinker.link(feature.properties['activity'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">notes</th>\
+                        <td>' + (feature.properties['notes'] !== null ? autolinker.link(feature.properties['notes'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">uniqueID</th>\
+                        <td>' + (feature.properties['uniqueID'] !== null ? autolinker.link(feature.properties['uniqueID'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_BrankoBenzon_36_0() {
+            return {
+                pane: 'pane_BrankoBenzon_36',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(114,155,111,1.0)',
+                interactive: true,
+            }
+        }
+        map.createPane('pane_BrankoBenzon_36');
+        map.getPane('pane_BrankoBenzon_36').style.zIndex = 436;
+        map.getPane('pane_BrankoBenzon_36').style['mix-blend-mode'] = 'normal';
+        var layer_BrankoBenzon_36 = new L.geoJson(json_BrankoBenzon_36, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_BrankoBenzon_36',
+            layerName: 'layer_BrankoBenzon_36',
+            pane: 'pane_BrankoBenzon_36',
+            onEachFeature: pop_BrankoBenzon_36,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.circleMarker(latlng, style_BrankoBenzon_36_0(feature));
+            },
+        });
+        bounds_group.addLayer(layer_BrankoBenzon_36);
+        map.addLayer(layer_BrankoBenzon_36);
+        function pop_brankobenzon_path_37(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['begin'] !== null ? autolinker.link(feature.properties['begin'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['end'] !== null ? autolinker.link(feature.properties['end'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_brankobenzon_path_37_0() {
+            return {
+                pane: 'pane_brankobenzon_path_37',
+                opacity: 1,
+                color: 'rgba(114,155,111,1.0)',
+                dashArray: '',
+                lineCap: 'round',
+                lineJoin: 'round',
+                weight: 3.0,
+                fillOpacity: 0,
+                interactive: false,
+            }
+        }
+        map.createPane('pane_brankobenzon_path_37');
+        map.getPane('pane_brankobenzon_path_37').style.zIndex = 437;
+        map.getPane('pane_brankobenzon_path_37').style['mix-blend-mode'] = 'normal';
+        var layer_brankobenzon_path_37 = new L.geoJson(json_brankobenzon_path_37, {
+            attribution: '',
+            interactive: false,
+            dataVar: 'json_brankobenzon_path_37',
+            layerName: 'layer_brankobenzon_path_37',
+            pane: 'pane_brankobenzon_path_37',
+            onEachFeature: pop_brankobenzon_path_37,
+            style: style_brankobenzon_path_37_0,
+        });
+        bounds_group.addLayer(layer_brankobenzon_path_37);
+        map.addLayer(layer_brankobenzon_path_37);
+        function pop_KlausBarbie_38(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <th scope="row">fid</th>\
+                        <td>' + (feature.properties['fid'] !== null ? autolinker.link(feature.properties['fid'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Name</th>\
+                        <td>' + (feature.properties['Name'] !== null ? autolinker.link(feature.properties['Name'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Beschreibung</th>\
+                        <td>' + (feature.properties['Beschreibung'] !== null ? autolinker.link(feature.properties['Beschreibung'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">criminalID</th>\
+                        <td>' + (feature.properties['criminalID'] !== null ? autolinker.link(feature.properties['criminalID'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">criminal</th>\
+                        <td>' + (feature.properties['criminal'] !== null ? autolinker.link(feature.properties['criminal'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">order</th>\
+                        <td>' + (feature.properties['order'] !== null ? autolinker.link(feature.properties['order'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">start_year</th>\
+                        <td>' + (feature.properties['start_year'] !== null ? autolinker.link(feature.properties['start_year'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">end_year</th>\
+                        <td>' + (feature.properties['end_year'] !== null ? autolinker.link(feature.properties['end_year'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">activity</th>\
+                        <td>' + (feature.properties['activity'] !== null ? autolinker.link(feature.properties['activity'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">notes</th>\
+                        <td>' + (feature.properties['notes'] !== null ? autolinker.link(feature.properties['notes'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">uniqueID</th>\
+                        <td>' + (feature.properties['uniqueID'] !== null ? autolinker.link(feature.properties['uniqueID'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_KlausBarbie_38_0() {
+            return {
+                pane: 'pane_KlausBarbie_38',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(213,180,60,1.0)',
+                interactive: true,
+            }
+        }
+        map.createPane('pane_KlausBarbie_38');
+        map.getPane('pane_KlausBarbie_38').style.zIndex = 438;
+        map.getPane('pane_KlausBarbie_38').style['mix-blend-mode'] = 'normal';
+        var layer_KlausBarbie_38 = new L.geoJson(json_KlausBarbie_38, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_KlausBarbie_38',
+            layerName: 'layer_KlausBarbie_38',
+            pane: 'pane_KlausBarbie_38',
+            onEachFeature: pop_KlausBarbie_38,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.circleMarker(latlng, style_KlausBarbie_38_0(feature));
+            },
+        });
+        bounds_group.addLayer(layer_KlausBarbie_38);
+        map.addLayer(layer_KlausBarbie_38);
+        function pop_klausbarbie_path_39(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['begin'] !== null ? autolinker.link(feature.properties['begin'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['end'] !== null ? autolinker.link(feature.properties['end'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_klausbarbie_path_39_0() {
+            return {
+                pane: 'pane_klausbarbie_path_39',
+                opacity: 1,
+                color: 'rgba(213,180,60,1.0)',
+                dashArray: '',
+                lineCap: 'round',
+                lineJoin: 'round',
+                weight: 3.0,
+                fillOpacity: 0,
+                interactive: false,
+            }
+        }
+        map.createPane('pane_klausbarbie_path_39');
+        map.getPane('pane_klausbarbie_path_39').style.zIndex = 439;
+        map.getPane('pane_klausbarbie_path_39').style['mix-blend-mode'] = 'normal';
+        var layer_klausbarbie_path_39 = new L.geoJson(json_klausbarbie_path_39, {
+            attribution: '',
+            interactive: false,
+            dataVar: 'json_klausbarbie_path_39',
+            layerName: 'layer_klausbarbie_path_39',
+            pane: 'pane_klausbarbie_path_39',
+            onEachFeature: pop_klausbarbie_path_39,
+            style: style_klausbarbie_path_39_0,
+        });
+        bounds_group.addLayer(layer_klausbarbie_path_39);
+        map.addLayer(layer_klausbarbie_path_39);
         var baseMaps = {};
-        L.control.layers(baseMaps,{'Escape_routes- reduced_data<br /><table><tr><td style="text-align: center;"><img src="legend/Escape_routesreduced_data_3_AdolfEichmann0.png" /></td><td>Adolf Eichmann</td></tr><tr><td style="text-align: center;"><img src="legend/Escape_routesreduced_data_3_AloisHudal1.png" /></td><td>Alois Hudal</td></tr><tr><td style="text-align: center;"><img src="legend/Escape_routesreduced_data_3_AntePavelic2.png" /></td><td>Ante Pavelic</td></tr><tr><td style="text-align: center;"><img src="legend/Escape_routesreduced_data_3_AribertHeim3.png" /></td><td>Aribert Heim</td></tr><tr><td style="text-align: center;"><img src="legend/Escape_routesreduced_data_3_BrankoBenzon4.png" /></td><td>Branko Benzon</td></tr><tr><td style="text-align: center;"><img src="legend/Escape_routesreduced_data_3_CarlVaernet5.png" /></td><td>Carl Vaernet</td></tr><tr><td style="text-align: center;"><img src="legend/Escape_routesreduced_data_3_CarlosFuldner6.png" /></td><td>Carlos Fuldner</td></tr><tr><td style="text-align: center;"><img src="legend/Escape_routesreduced_data_3_EduardRoschmann7.png" /></td><td>Eduard Roschmann</td></tr><tr><td style="text-align: center;"><img src="legend/Escape_routesreduced_data_3_ErichPriebke8.png" /></td><td>Erich Priebke</td></tr><tr><td style="text-align: center;"><img src="legend/Escape_routesreduced_data_3_FranzStangl9.png" /></td><td>Franz Stangl</td></tr><tr><td style="text-align: center;"><img src="legend/Escape_routesreduced_data_3_GerhardBohne10.png" /></td><td>Gerhard Bohne</td></tr><tr><td style="text-align: center;"><img src="legend/Escape_routesreduced_data_3_GinoMontideValsassina11.png" /></td><td>Gino Monti de Valsassina</td></tr><tr><td style="text-align: center;"><img src="legend/Escape_routesreduced_data_3_HansUlrichRudel12.png" /></td><td>Hans Ulrich Rudel</td></tr><tr><td style="text-align: center;"><img src="legend/Escape_routesreduced_data_3_JosefMengele13.png" /></td><td>Josef Mengele</td></tr><tr><td style="text-align: center;"><img src="legend/Escape_routesreduced_data_3_JosefSchwammberger14.png" /></td><td>Josef Schwammberger</td></tr><tr><td style="text-align: center;"><img src="legend/Escape_routesreduced_data_3_KlausBarbie15.png" /></td><td>Klaus Barbie</td></tr><tr><td style="text-align: center;"><img src="legend/Escape_routesreduced_data_3_KrunoslavDraganović16.png" /></td><td>Krunoslav Draganović</td></tr><tr><td style="text-align: center;"><img src="legend/Escape_routesreduced_data_3_PierreDaye17.png" /></td><td>Pierre Daye</td></tr><tr><td style="text-align: center;"><img src="legend/Escape_routesreduced_data_3_WaltherRauff18.png" /></td><td>Walther Rauff</td></tr><tr><td style="text-align: center;"><img src="legend/Escape_routesreduced_data_3_19.png" /></td><td></td></tr></table>': layer_Escape_routesreduced_data_3,'paths_final<br /><table><tr><td style="text-align: center;"><img src="legend/paths_final_2_AdolfEichmann0.png" /></td><td>Adolf Eichmann</td></tr><tr><td style="text-align: center;"><img src="legend/paths_final_2_AloisHudal1.png" /></td><td>Alois Hudal</td></tr><tr><td style="text-align: center;"><img src="legend/paths_final_2_AntePavelic2.png" /></td><td>Ante Pavelic</td></tr><tr><td style="text-align: center;"><img src="legend/paths_final_2_AribertHeim3.png" /></td><td>Aribert Heim</td></tr><tr><td style="text-align: center;"><img src="legend/paths_final_2_BrankoBenzon4.png" /></td><td>Branko Benzon</td></tr><tr><td style="text-align: center;"><img src="legend/paths_final_2_CarlVaernet5.png" /></td><td>Carl Vaernet</td></tr><tr><td style="text-align: center;"><img src="legend/paths_final_2_CarlosFuldner6.png" /></td><td>Carlos Fuldner</td></tr><tr><td style="text-align: center;"><img src="legend/paths_final_2_EduardRoschmann7.png" /></td><td>Eduard Roschmann</td></tr><tr><td style="text-align: center;"><img src="legend/paths_final_2_ErichPriebke8.png" /></td><td>Erich Priebke</td></tr><tr><td style="text-align: center;"><img src="legend/paths_final_2_FranzStangl9.png" /></td><td>Franz Stangl</td></tr><tr><td style="text-align: center;"><img src="legend/paths_final_2_GerhardBohne10.png" /></td><td>Gerhard Bohne</td></tr><tr><td style="text-align: center;"><img src="legend/paths_final_2_GinoMontideValsassina11.png" /></td><td>Gino Monti de Valsassina</td></tr><tr><td style="text-align: center;"><img src="legend/paths_final_2_HansUlrichRudel12.png" /></td><td>Hans Ulrich Rudel</td></tr><tr><td style="text-align: center;"><img src="legend/paths_final_2_JosefMengele13.png" /></td><td>Josef Mengele</td></tr><tr><td style="text-align: center;"><img src="legend/paths_final_2_JosefSchwammberger14.png" /></td><td>Josef Schwammberger</td></tr><tr><td style="text-align: center;"><img src="legend/paths_final_2_KlausBarbie15.png" /></td><td>Klaus Barbie</td></tr><tr><td style="text-align: center;"><img src="legend/paths_final_2_PierreDaye16.png" /></td><td>Pierre Daye</td></tr><tr><td style="text-align: center;"><img src="legend/paths_final_2_WaltherRauff17.png" /></td><td>Walther Rauff</td></tr><tr><td style="text-align: center;"><img src="legend/paths_final_2_18.png" /></td><td></td></tr></table>': layer_paths_final_2,"Google Satellite": layer_GoogleSatellite_1,'<img src="legend/world_1945_0.png" /> world_1945': layer_world_1945_0,},{collapsed:false}).addTo(map);
+        L.control.layers(baseMaps,{'<img src="legend/klausbarbie_path_39.png" /> klausbarbie_path': layer_klausbarbie_path_39,'<img src="legend/KlausBarbie_38.png" /> Klaus Barbie': layer_KlausBarbie_38,'<img src="legend/brankobenzon_path_37.png" /> brankobenzon_path': layer_brankobenzon_path_37,'<img src="legend/BrankoBenzon_36.png" /> Branko Benzon': layer_BrankoBenzon_36,'<img src="legend/gerhardbohne_path_35.png" /> gerhardbohne_path': layer_gerhardbohne_path_35,'<img src="legend/GerhardBohne_34.png" /> Gerhard Bohne': layer_GerhardBohne_34,'<img src="legend/pierredaye_path_33.png" /> pierredaye_path': layer_pierredaye_path_33,'<img src="legend/PierreDaye_32.png" /> Pierre Daye': layer_PierreDaye_32,'<img src="legend/adolfeichmann_path_31.png" /> adolfeichmann_path': layer_adolfeichmann_path_31,'<img src="legend/AdolfEichmann_30.png" /> Adolf Eichmann': layer_AdolfEichmann_30,'<img src="legend/aribertheim_path_29.png" /> aribertheim_path': layer_aribertheim_path_29,'<img src="legend/AribertHeim_28.png" /> Aribert Heim': layer_AribertHeim_28,'<img src="legend/jacquesdemahieu_path_27.png" /> jacquesdemahieu_path': layer_jacquesdemahieu_path_27,'<img src="legend/JacquesdeMahieu_26.png" /> Jacques de Mahieu': layer_JacquesdeMahieu_26,'<img src="legend/josefmengele_path_25.png" /> josefmengele_path': layer_josefmengele_path_25,'<img src="legend/JosefMengele_24.png" /> Josef Mengele': layer_JosefMengele_24,'<img src="legend/ginomontidevalsassina_path_23.png" /> ginomontidevalsassina_path': layer_ginomontidevalsassina_path_23,'<img src="legend/GinoMontideValsassina_22.png" /> Gino Monti de Valsassina': layer_GinoMontideValsassina_22,'<img src="legend/antepavelic_path_21.png" /> antepavelic_path': layer_antepavelic_path_21,'<img src="legend/AntePavelic_20.png" /> Ante Pavelic': layer_AntePavelic_20,'<img src="legend/erichpriebke_path_19.png" /> erichpriebke_path': layer_erichpriebke_path_19,'<img src="legend/ErichPriebke_18.png" /> Erich Priebke': layer_ErichPriebke_18,'<img src="legend/waltherrauff_path_17.png" /> waltherrauff_path': layer_waltherrauff_path_17,'<img src="legend/WaltherRauff_16.png" /> Walther Rauff': layer_WaltherRauff_16,'<img src="legend/eduardroschmann_path_15.png" /> eduardroschmann_path': layer_eduardroschmann_path_15,'<img src="legend/EduardRoschmann_14.png" /> Eduard Roschmann': layer_EduardRoschmann_14,'<img src="legend/hansulrichrudel_path_13.png" /> hansulrichrudel_path': layer_hansulrichrudel_path_13,'<img src="legend/HansUlrichRudel_12.png" /> Hans Ulrich Rudel': layer_HansUlrichRudel_12,'<img src="legend/josefschwammberger_path_11.png" /> josefschwammberger_path': layer_josefschwammberger_path_11,'<img src="legend/JosefSchwammberger_10.png" /> Josef Schwammberger': layer_JosefSchwammberger_10,'<img src="legend/franzstangl_path_9.png" /> franzstangl_path': layer_franzstangl_path_9,'<img src="legend/FranzStangl_8.png" /> Franz Stangl': layer_FranzStangl_8,'<img src="legend/carlvaernet_path_7.png" /> carlvaernet_path': layer_carlvaernet_path_7,'<img src="legend/CarlVaernet_6.png" /> Carl Vaernet': layer_CarlVaernet_6,'<img src="legend/KrunoslavDraganovic_5.png" /> Krunoslav Draganovic': layer_KrunoslavDraganovic_5,'<img src="legend/carlosfuldner_path_4.png" /> carlosfuldner_path': layer_carlosfuldner_path_4,'<img src="legend/CarlosFuldner_3.png" /> Carlos Fuldner': layer_CarlosFuldner_3,'<img src="legend/AloisHudal_2.png" /> Alois Hudal': layer_AloisHudal_2,"Google Satellite": layer_GoogleSatellite_1,'<img src="legend/Borders1945_0.png" /> Borders (1945)': layer_Borders1945_0,},{collapsed:false}).addTo(map);
         setBounds();
         var i = 0;
-        layer_world_1945_0.eachLayer(function(layer) {
+        layer_Borders1945_0.eachLayer(function(layer) {
             var context = {
                 feature: layer.feature,
                 variables: {}
             };
-            layer.bindTooltip((layer.feature.properties['NAME'] !== null?String('<div style="color: #323232; font-size: 6pt; font-family: \'Liberation Sans\', sans-serif;">' + layer.feature.properties['NAME']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_world_1945_0'});
+            layer.bindTooltip((layer.feature.properties['NAME'] !== null?String('<div style="color: #323232; font-size: 6pt; font-family: \'Liberation Sans\', sans-serif;">' + layer.feature.properties['NAME']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_Borders1945_0'});
             labels.push(layer);
             totalMarkers += 1;
               layer.added = true;
               addLabel(layer, i);
               i++;
         });
-        var i = 0;
-        layer_paths_final_2.eachLayer(function(layer) {
-            var context = {
-                feature: layer.feature,
-                variables: {}
-            };
-            layer.bindTooltip((layer.feature.properties['criminal'] !== null?String('<div style="color: #323232; font-size: 10pt; font-style: italic; font-family: \'Liberation Sans\', sans-serif;">' + layer.feature.properties['criminal']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_paths_final_2'});
-            labels.push(layer);
-            totalMarkers += 1;
-              layer.added = true;
-              addLabel(layer, i);
-              i++;
-        });
-        resetLabels([layer_world_1945_0,layer_paths_final_2]);
+        resetLabels([layer_Borders1945_0,layer_klausbarbie_path_39]);
         map.on("zoomend", function(){
-            resetLabels([layer_world_1945_0,layer_paths_final_2]);
+            resetLabels([layer_Borders1945_0,layer_klausbarbie_path_39]);
         });
         map.on("layeradd", function(){
-            resetLabels([layer_world_1945_0,layer_paths_final_2]);
+            resetLabels([layer_Borders1945_0,layer_klausbarbie_path_39]);
         });
         map.on("layerremove", function(){
-            resetLabels([layer_world_1945_0,layer_paths_final_2]);
+            resetLabels([layer_Borders1945_0,layer_klausbarbie_path_39]);
         });
         </script>
     </body>
